@@ -1,0 +1,9 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\StringHelper\bin\Debug\StringHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\StringHelper\bin\Debug\StringHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\StringHelper\obj\Debug\StringHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\StringHelper\obj\Debug\StringHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\StringHelper\obj\Debug\StringHelper.csprojResolveAssemblyReference.cache
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\StringHelper\bin\Debug\StringHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\StringHelper\bin\Debug\StringHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\StringHelper\obj\Debug\StringHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\StringHelper\obj\Debug\StringHelper.pdb

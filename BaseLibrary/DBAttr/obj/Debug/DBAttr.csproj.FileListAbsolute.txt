@@ -1,0 +1,9 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBAttr\bin\Debug\DBAttr.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBAttr\bin\Debug\DBAttr.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBAttr\obj\Debug\DBAttr.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBAttr\obj\Debug\DBAttr.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBAttr\obj\Debug\DBAttr.csprojResolveAssemblyReference.cache
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBAttr\bin\Debug\DBAttr.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBAttr\bin\Debug\DBAttr.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBAttr\obj\Debug\DBAttr.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBAttr\obj\Debug\DBAttr.pdb

@@ -1,0 +1,1 @@
+﻿lppExt beta0.2采用原生js编写

@@ -1,0 +1,5 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\SecurityHelper\bin\Debug\SecurityHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\SecurityHelper\bin\Debug\SecurityHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\SecurityHelper\obj\Debug\SecurityHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\SecurityHelper\obj\Debug\SecurityHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\SecurityHelper\obj\Debug\SecurityHelper.csprojResolveAssemblyReference.cache

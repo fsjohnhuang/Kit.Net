@@ -1,0 +1,5 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\SocketServer\bin\Debug\SocketServer.exe
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\SocketServer\bin\Debug\SocketServer.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\SocketServer\obj\Debug\SocketServer.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\SocketServer\obj\Debug\SocketServer.exe
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\SocketServer\obj\Debug\SocketServer.pdb

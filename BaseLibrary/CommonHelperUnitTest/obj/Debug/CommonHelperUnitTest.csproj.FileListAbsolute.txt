@@ -1,0 +1,16 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\CommonHelperUnitTest.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\CommonHelperUnitTest.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\CommonHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\CommonHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\obj\Debug\CommonHelperUnitTest.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\obj\Debug\CommonHelperUnitTest.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\obj\Debug\CommonHelperUnitTest.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\ZipHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\LogHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\ZipHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\LogHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\CollectionHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\StringHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\CollectionHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Debug\StringHelper.pdb

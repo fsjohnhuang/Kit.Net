@@ -1,0 +1,13 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\bin\Debug\ExtHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\bin\Debug\ExtHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\bin\Debug\Newtonsoft.Json.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\obj\Debug\ExtHelper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\obj\Debug\ExtHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\obj\Debug\ExtHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\bin\Debug\DBHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\bin\Debug\DBHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\bin\Debug\DBAttr.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\bin\Debug\LogHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\bin\Debug\System.Data.SQLite.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\bin\Debug\DBAttr.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ExtHelper\bin\Debug\LogHelper.pdb

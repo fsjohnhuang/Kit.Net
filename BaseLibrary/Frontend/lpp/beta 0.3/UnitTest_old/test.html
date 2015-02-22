@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>lpp beta0.3测试</title>
+    <script src="lpp/json2.js"></script>
+    <script src="lpp/lpp.js"></script>
+    <script src="lpp/lpp.Str.js"></script>
+    <script src="lpp/lpp.Date.js"></script>
+    <script src="lpp/lpp.Ajax.js"></script>
+    <script src="lpp/ui/Tab.js"></script>
+    <script src="lpp/lpp.Tpl.js"></script>
+    <script src="lpp.Tpl.test.js"></script>
+    <style type="text/css">
+        .curTab a{
+            color: blue;
+            font-weight: bold;
+        }
+        #dd{
+            width: 100px;
+            height: 100px;
+            border: solid 1px red;
+        }
+        #dc{
+            width: 50px;
+            height: 50px;
+            border: solid 1px red;
+        }
+    </style>
+</head>
+<body>
+    <div id="ddd" style="width: 500px; height: 100px; border: solid 1px red;">
+        
+    </div>
+    <div id="d1">
+        <div id="d2"></div>
+        <div id="d3"></div>
+    </div>
+    <input type="button" value="show" onclick="oclick()" />
+
+    <div id="dd">
+        <div id="dc"></div>
+    </div>
+</body>
+    <script type="text/javascript">
+        var t = lpp.create('lpp.ui.Tab', {
+            curTabCls: 'curTab',
+            tabTpl: '<a href="@href">@name</a>',
+            itemTpl: '<li><a href="@href">@title</a><span>09-09</span></li>'
+        });
+        var tt = t.bind('dummyData.js', '#ddd');
+
+    </script>
+</html>

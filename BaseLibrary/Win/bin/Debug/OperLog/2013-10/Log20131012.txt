@@ -1,0 +1,6 @@
+﻿2013/10/12 9:19:44  ----  System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 lpp.WinFormController.SelectLists.btnExchange_Click(Object sender, EventArgs e) 位置 f:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormController\SelectLists.cs:行号 119
+2013/10/12 9:19:45  ----  System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 lpp.WinFormController.SelectLists.btnSrc2Dest_Click(Object sender, EventArgs e) 位置 f:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormController\SelectLists.cs:行号 92
+2013/10/12 9:19:47  ----  System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 lpp.WinFormController.SelectLists.btnDest2Src_Click(Object sender, EventArgs e) 位置 f:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormController\SelectLists.cs:行号 105

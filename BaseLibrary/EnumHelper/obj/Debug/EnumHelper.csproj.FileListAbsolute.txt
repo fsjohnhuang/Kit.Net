@@ -1,0 +1,5 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\EnumHelper\bin\Debug\EnumHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\EnumHelper\bin\Debug\EnumHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\EnumHelper\obj\Debug\EnumHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\EnumHelper\obj\Debug\EnumHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\EnumHelper\obj\Debug\EnumHelper.csprojResolveAssemblyReference.cache

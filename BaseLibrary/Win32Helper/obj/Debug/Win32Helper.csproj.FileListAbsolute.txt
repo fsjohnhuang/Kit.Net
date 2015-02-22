@@ -1,0 +1,12 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Win32Helper\bin\Debug\Win32Helper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Win32Helper\bin\Debug\Win32Helper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Win32Helper\bin\Debug\EnumHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Win32Helper\bin\Debug\StringHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Win32Helper\bin\Debug\EnumHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Win32Helper\bin\Debug\StringHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Win32Helper\bin\Debug\Interop.IWshRuntimeLibrary.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Win32Helper\obj\Debug\Win32Helper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Win32Helper\obj\Debug\Interop.IWshRuntimeLibrary.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Win32Helper\obj\Debug\Win32Helper.csproj.ResolveComReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Win32Helper\obj\Debug\Win32Helper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Win32Helper\obj\Debug\Win32Helper.pdb

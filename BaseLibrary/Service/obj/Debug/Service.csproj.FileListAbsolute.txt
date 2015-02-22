@@ -1,0 +1,4 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Service\bin\Debug\Service.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Service\bin\Debug\Service.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Service\obj\Debug\Service.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Service\obj\Debug\Service.pdb

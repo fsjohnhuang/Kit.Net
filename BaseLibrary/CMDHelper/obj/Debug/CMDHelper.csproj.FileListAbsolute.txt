@@ -1,0 +1,9 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CMDHelper\obj\Debug\CMDHelper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CMDHelper\bin\Debug\CMDHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CMDHelper\bin\Debug\CMDHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CMDHelper\bin\Debug\StringHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CMDHelper\bin\Debug\StringHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CMDHelper\obj\Debug\CMDHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CMDHelper\obj\Debug\CMDHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CMDHelper\bin\Debug\CollectionHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CMDHelper\bin\Debug\CollectionHelper.pdb

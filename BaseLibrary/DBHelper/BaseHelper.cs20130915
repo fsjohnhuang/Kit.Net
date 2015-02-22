@@ -1,0 +1,708 @@
+﻿using lpp.CommonHelper;
+using lpp.DBHelper.Attr;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Reflection;
+using System.Text;
+
+namespace lpp.DBHelper
+{
+    public class BaseHelper
+    {
+        protected delegate string ToQuerySQL(SQLQueryClause sqlQueryClause);
+        protected delegate string ToQueryByPagingSQL(SQLQueryByPagingClause sqlQueryByPagingClause);
+        protected delegate string ToQueryCountSQL(SQLQueryCountClause sqlQueryCountClause);
+        protected delegate string ToInsertSQL(SQLInsertClause sqlInsertClause);
+        protected delegate string ToDelSQL(SQLDelClause sqlDelClause);
+        protected delegate string ToUpdateSQL(SQLUpdateClause sqlUpdateClause);
+
+        private IDBInstance m_Db;
+
+        // 关键字的引用符，MS用[]或",其他数据库用"
+        private char m_QuotingStart = '"';
+        private char m_QuotingEnd = '"';
+        protected char QuotingStart 
+        { 
+            set 
+            { 
+                m_QuotingStart = value;
+                switch (value)
+                {
+                    case '"':
+                        m_QuotingEnd = '"';
+                        break;
+                    case '[':
+                        m_QuotingEnd = ']';
+                        break;
+                }
+            } 
+        }
+
+        // 别名命名时的关键字
+        private string m_AliasSymbol = "AS";
+        protected string AliasSymbol { set { m_AliasSymbol = value; } }
+
+        public BaseHelper(IDBInstance db)
+        {
+            m_Db = db;
+        }
+
+        public BaseHelper(IDBInstance db, char quoting) : this(db)
+        {
+            m_QuotingStart = quoting;
+            switch (quoting)
+            {
+                case '"':
+                    m_QuotingEnd = '"';
+                    break;
+                case '[':
+                    m_QuotingEnd = ']';
+                    break;
+            }
+        }
+
+        #region 查询
+        /// <summary>
+        /// 对单表执行查询操作
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="toQuerySql">生成完整SQL语句的函数</param>
+        /// <param name="queryParam">查询子句集合</param>
+        /// <returns></returns>
+        protected List<T> Query<T>(ToQuerySQL toQuerySql, QueryParam queryParam)
+        {
+            if (queryParam.ColFns == null)
+                queryParam.ColFns = new Dictionary<string, string>();
+            List<T> recs = new List<T>();
+
+            // 组装Sql
+            string tblName = string.Empty; // 表名称
+            Type modelType = typeof(T);
+            TblAttr tblAttr = (TblAttr)modelType.GetCustomAttributes(typeof(TblAttr), true)[0];
+            tblName = tblAttr.Name;
+
+            StringBuilder cols = new StringBuilder(); // 字段名称
+            PropertyInfo[] propertyInfos = modelType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            for (int i = 0; i < propertyInfos.Length; i++)
+            {
+                object[] attrs = propertyInfos[i].GetCustomAttributes(typeof(ColAttr), true);
+                ColAttr colAttr = null;
+                if (attrs.Length == 0 || ((colAttr = (ColAttr)attrs[0]) == null)) continue;
+                if (null != queryParam.ExcludedCols && queryParam.ExcludedCols.Exists((excludedName) => { return excludedName.Equals(colAttr.Name); })) continue; // 排除不包含的Select子句的列
+
+                string colName = (colAttr.Name.IndexOf(m_QuotingStart) >= 0 ? colAttr.Name : m_QuotingStart + colAttr.Name + m_QuotingEnd);
+                if (queryParam.ColFns.ContainsKey(propertyInfos[i].Name))
+                    colName = string.Format(queryParam.ColFns[propertyInfos[i].Name] + " " + m_AliasSymbol + " " + colName, colName);
+                cols.Append(colName + ",");
+            }
+            if (cols.Length >= 1)
+            {
+                cols.Remove(cols.Length - 1, 1);
+            }
+
+            SQLQueryClause sqlQueryClause = new SQLQueryClause();
+            sqlQueryClause.Select = cols.ToString();
+            sqlQueryClause.From = string.Format(" {0} ", tblName);
+            sqlQueryClause.Where = string.Format(" {0} ", queryParam.WhereSql);
+            sqlQueryClause.OrderBy = string.Format(" {0} ", queryParam.OrderBy);
+
+            string sql = toQuerySql(sqlQueryClause);
+
+            List<ParamInfo> paramInfos = queryParam.ParamInfos;
+            IDataReader reader = m_Db.ExecReader(sql, paramInfos, CommandBehavior.CloseConnection);
+            if (null != reader)
+            {
+                try
+                {
+                    T rec = default(T);
+                    while (reader.Read())
+                    {
+                        rec = (T)modelType.GetConstructor(new Type[] { }).Invoke(null);
+
+                        for (int i = 0; i < propertyInfos.Length; i++)
+                        {
+                            PropertyInfo curPropertyInfo = propertyInfos[i];
+                            object[] attrs = propertyInfos[i].GetCustomAttributes(typeof(ColAttr), true);
+                            ColAttr colAttr = null;
+                            if (attrs.Length == 0 || ((colAttr = (ColAttr)attrs[0]) == null)) continue;
+                            if (null != queryParam.ExcludedCols && queryParam.ExcludedCols.Exists((excludedName) => { return excludedName.Equals(colAttr.Name); })) continue; // 排除不包含的Select子句的列
+
+                            int colIndex = reader.GetOrdinal(colAttr.Name);
+                            if (reader.IsDBNull(colIndex)) continue;
+                            object valObj = (reader.IsDBNull(colIndex) ? Util.GetDefaultVal(curPropertyInfo.PropertyType) : reader.GetValue(colIndex));
+                            curPropertyInfo.SetValue(rec, valObj, null);
+                        }
+
+                        recs.Add(rec);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteEx2LogFile(ex);
+                }
+                finally
+                {
+                    if (!reader.IsClosed)
+                    {
+                        reader.Close();
+                    }
+                }
+            }
+
+            return recs;
+        }
+
+        /// <summary>
+        /// 对单表执行查询单条记录操作
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="toQuerySql">生成完整SQL语句的函数</param>
+        /// <param name="queryParam">查询子句集合</param>
+        /// <returns></returns>
+        protected T QuerySingle<T>(ToQuerySQL toQuerySql, QueryParam queryParam)
+        {
+            if (queryParam.ColFns == null)
+                queryParam.ColFns = new Dictionary<string, string>();
+            T rec = default(T);
+
+            // 组装Sql
+            string tblName = string.Empty; // 表名称
+            Type modelType = typeof(T);
+            TblAttr tblAttr = (TblAttr)modelType.GetCustomAttributes(typeof(TblAttr), true)[0];
+            tblName = tblAttr.Name;
+
+            StringBuilder cols = new StringBuilder(); // 字段名称
+            PropertyInfo[] propertyInfos = modelType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            for (int i = 0; i < propertyInfos.Length; i++)
+            {
+                object[] attrs = propertyInfos[i].GetCustomAttributes(typeof(ColAttr), true);
+                ColAttr colAttr = null;
+                if (attrs.Length == 0 || ((colAttr = (ColAttr)attrs[0]) == null)) continue;
+                if (null != queryParam.ExcludedCols && queryParam.ExcludedCols.Exists((excludedName) => { return excludedName.Equals(colAttr.Name); })) continue; // 排除不包含的Select子句的列
+
+                string colName = (colAttr.Name.IndexOf(m_QuotingStart) >= 0 ? colAttr.Name : m_QuotingStart + colAttr.Name + m_QuotingEnd);
+                if (queryParam.ColFns.ContainsKey(propertyInfos[i].Name))
+                    colName = string.Format(queryParam.ColFns[propertyInfos[i].Name] + " " + m_AliasSymbol + " " + colName, colName);
+                cols.Append(colName + ",");
+            }
+            if (cols.Length >= 1)
+            {
+                cols.Remove(cols.Length - 1, 1);
+            }
+
+            SQLQueryClause sqlQueryClause = new SQLQueryClause();
+            sqlQueryClause.Select = cols.ToString();
+            sqlQueryClause.From = string.Format(" {0} ", tblName);
+            sqlQueryClause.Where = string.Format(" {0} ", queryParam.WhereSql);
+            sqlQueryClause.OrderBy = string.Format(" {0} ", queryParam.OrderBy);
+
+            string sql = toQuerySql(sqlQueryClause);
+
+            List<ParamInfo> paramInfos = queryParam.ParamInfos;
+            IDataReader reader = m_Db.ExecReader(sql, paramInfos, CommandBehavior.CloseConnection);
+            if (null != reader)
+            {
+                try
+                {
+                    if (reader.Read())
+                    {
+                        rec = Activator.CreateInstance<T>();
+
+                        for (int i = 0; i < propertyInfos.Length; i++)
+                        {
+                            PropertyInfo curPropertyInfo = propertyInfos[i];
+                            object[] attrs = propertyInfos[i].GetCustomAttributes(typeof(ColAttr), true);
+                            ColAttr colAttr = null;
+                            if (attrs.Length == 0 || ((colAttr = (ColAttr)attrs[0]) == null)) continue;
+                            if (null != queryParam.ExcludedCols && queryParam.ExcludedCols.Exists((excludedName) => { return excludedName.Equals(colAttr.Name); })) continue; // 排除不包含的Select子句的列
+
+                            int colIndex = reader.GetOrdinal(colAttr.Name);
+                            if (reader.IsDBNull(colIndex)) continue;
+                            object valObj = (reader.IsDBNull(colIndex) ? Util.GetDefaultVal(curPropertyInfo.PropertyType) : reader.GetValue(colIndex));
+                            curPropertyInfo.SetValue(rec, valObj, null);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteEx2LogFile(ex);
+                }
+                finally
+                {
+                    if (!reader.IsClosed)
+                    {
+                        reader.Close();
+                    }
+                }
+            }
+
+            return rec;
+        }
+
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="toQueryByPagingSQL">生成完整SQL语句的函数</param>
+        /// <param name="queryByPagingParam">分页查询子句集合</param>
+        /// <returns></returns>
+        protected List<T> QueryByPaging<T>(ToQueryByPagingSQL toQueryByPagingSQL, QueryByPagingParam queryByPagingParam)
+        {
+            if (queryByPagingParam.ColFns == null)
+                queryByPagingParam.ColFns = new Dictionary<string, string>();
+            List<T> recs = new List<T>();
+
+            // 组装Sql
+            string tblName = string.Empty; // 表名称
+            Type modelType = typeof(T);
+            TblAttr tblAttr = (TblAttr)modelType.GetCustomAttributes(typeof(TblAttr), true)[0];
+            tblName = tblAttr.Name;
+
+            StringBuilder cols = new StringBuilder(); // 字段名称
+            PropertyInfo[] propertyInfos = modelType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            for (int i = 0; i < propertyInfos.Length; i++)
+            {
+                object[] attrs = propertyInfos[i].GetCustomAttributes(typeof(ColAttr), true);
+                ColAttr colAttr = null;
+                if (attrs.Length == 0 || ((colAttr = (ColAttr)attrs[0]) == null)) continue;
+                if (null != queryByPagingParam.ExcludedCols && queryByPagingParam.ExcludedCols.Exists((excludedName) => { return excludedName.Equals(colAttr.Name); })) continue; // 排除不包含的Select子句的列
+
+                string colName = (colAttr.Name.IndexOf(m_QuotingStart) >= 0 ? colAttr.Name : m_QuotingStart + colAttr.Name + m_QuotingEnd);
+                if (queryByPagingParam.ColFns.ContainsKey(propertyInfos[i].Name))
+                    colName = string.Format(queryByPagingParam.ColFns[propertyInfos[i].Name] + " " + m_AliasSymbol + " " + colName, colName);
+                cols.Append(colName + ",");
+            }
+            if (cols.Length >= 1)
+            {
+                cols.Remove(cols.Length - 1, 1);
+            }
+
+            SQLQueryByPagingClause sqlQueryByPagingClause = new SQLQueryByPagingClause();
+            sqlQueryByPagingClause.From = string.Format(" {0} ", tblName);
+            sqlQueryByPagingClause.OrderBy = queryByPagingParam.OrderBy;
+            sqlQueryByPagingClause.PageSize = queryByPagingParam.PageSize;
+            sqlQueryByPagingClause.StartIndex = queryByPagingParam.StartIndex;
+            sqlQueryByPagingClause.Where = queryByPagingParam.WhereSql;
+            sqlQueryByPagingClause.Select = cols.ToString();
+
+            string sql = toQueryByPagingSQL(sqlQueryByPagingClause);
+
+            IDataReader reader = m_Db.ExecReader(sql, queryByPagingParam.ParamInfos, CommandBehavior.CloseConnection);
+            if (null != reader)
+            {
+                try
+                {
+                    T rec = default(T);
+                    while (reader.Read())
+                    {
+                        rec = (T)modelType.GetConstructor(new Type[] { }).Invoke(null);
+
+                        for (int i = 0; i < propertyInfos.Length; i++)
+                        {
+                            PropertyInfo curPropertyInfo = propertyInfos[i];
+                            ColAttr curColAttr = (ColAttr)curPropertyInfo.GetCustomAttributes(typeof(ColAttr), true)[0];
+                            if (null != queryByPagingParam.ExcludedCols && queryByPagingParam.ExcludedCols.Exists((colName) => { return colName.Equals(curColAttr.Name); })) continue;
+
+                            Type propertyType = curPropertyInfo.PropertyType;
+                            int dbColIndex = reader.GetOrdinal(curColAttr.Name);
+                            if (reader.IsDBNull(dbColIndex)) continue;
+                            object valObj = reader.GetValue(dbColIndex);
+                            curPropertyInfo.SetValue(rec, (propertyType == typeof(DateTime?) ? new DateTime?(Convert.ToDateTime(valObj)) : valObj), null);
+                        }
+
+                        recs.Add(rec);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteEx2LogFile(ex);
+                }
+                finally
+                {
+                    if (!reader.IsClosed)
+                    {
+                        reader.Close();
+                    }
+                }
+            }
+
+            return recs;
+        }
+
+        /// <summary>
+        /// 获取记录总数
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="toQueryCountSQL">生成完整SQL语句的函数</param>
+        /// <param name="queryCountParam">获取记录总数的查询子句集合</param>
+        /// <returns></returns>
+        protected int QueryCount<T>(ToQueryCountSQL toQueryCountSQL, QueryCountParam queryCountParam)
+        {
+            int count = 0;
+
+            // 组装Sql
+            string tblName = string.Empty; // 表名称
+            Type modelType = typeof(T);
+            TblAttr tblAttr = (TblAttr)modelType.GetCustomAttributes(typeof(TblAttr), true)[0];
+            tblName = tblAttr.Name;
+
+            // 获取主键列名
+            string primaryCol = string.Empty;
+            PropertyInfo[] propertyInfos = modelType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            for (int i = 0; i < propertyInfos.Length; i++)
+            {
+                ColAttr colAttr = (ColAttr)propertyInfos[i].GetCustomAttributes(typeof(ColAttr), true)[0];
+                if (colAttr.IsPrimary)
+                {
+                    primaryCol = colAttr.Name;
+                    break;
+                }
+            }
+
+            SQLQueryCountClause sqlQueryCouontClause = new SQLQueryCountClause();
+            sqlQueryCouontClause.Select = (StringHelper.IsAllWhite(primaryCol) ? "*" : primaryCol);
+            sqlQueryCouontClause.From = tblName;
+            sqlQueryCouontClause.Where = string.Format(" {0} ", queryCountParam.WhereSql);
+
+            string sql = toQueryCountSQL(sqlQueryCouontClause);
+
+            object countObj = m_Db.ExecScalar(sql, queryCountParam.ParamInfos);
+            if (null != countObj)
+            {
+                count = Convert.ToInt32(countObj);
+            }
+
+            return count;
+        }
+        #endregion
+
+        #region 新增
+        /// <summary>
+        /// 新增记录
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="toInsertSql">生成完整SQL语句的函数</param>
+        /// <param name="entity">实体对象</param>
+        /// <returns></returns>
+        protected bool Insert<T>(ToInsertSQL toInsertSql, T entity)
+        {
+            bool isSuccess = false;
+            if (entity == null)
+            {
+                return isSuccess;
+            }
+
+            // 组装Sql
+            string tblName = string.Empty; // 表名称
+            Type modelType = typeof(T);
+            TblAttr tblAttr = (TblAttr)modelType.GetCustomAttributes(typeof(TblAttr), true)[0];
+            tblName = tblAttr.Name;
+
+            StringBuilder cols = new StringBuilder(); // 字段名称
+            StringBuilder colParams = new StringBuilder(); // 字段参数
+            List<ParamInfo> paramInfos = new List<ParamInfo>(); // 入参实体集合
+            PropertyInfo[] propertyInfos = modelType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            for (int i = 0; i < propertyInfos.Length; i++)
+            {
+                ColAttr colAttr = (ColAttr)propertyInfos[i].GetCustomAttributes(typeof(ColAttr), true)[0];
+                if (colAttr.IsPrimary && colAttr.IsAutoGenerate) continue;
+                if (propertyInfos[i].GetValue(entity, null) == null) continue;
+
+                cols.AppendFormat("{0},", (colAttr.Name.IndexOf(m_QuotingStart) >= 0 ? colAttr.Name : m_QuotingStart + colAttr.Name + m_QuotingEnd));
+                colParams.AppendFormat("{0}{1},"
+                    , m_Db.ParamPreffix
+                    , colAttr.Name.Replace(m_QuotingStart.ToString(), "").Replace(m_QuotingEnd.ToString(), ""));
+                paramInfos.Add(new ParamInfo(colAttr.Name.Replace(m_QuotingStart.ToString(), "").Replace(m_QuotingEnd.ToString(), ""), propertyInfos[i].GetValue(entity, null)));
+            }
+            if (cols.Length > 0)
+            {
+                cols.Remove(cols.Length - 1, 1);
+            }
+            if (colParams.Length > 0)
+            {
+                colParams.Remove(colParams.Length - 1, 1);
+            }
+
+            SQLInsertClause sqlInsertClause = new SQLInsertClause();
+            sqlInsertClause.Tbl = tblName;
+            sqlInsertClause.Cols = cols.ToString();
+            sqlInsertClause.Values = colParams.ToString();
+
+            string sql = toInsertSql(sqlInsertClause);
+
+            object countObj = m_Db.ExecNonQuery(sql, paramInfos);
+            if (null != countObj)
+            {
+                isSuccess = Convert.ToInt32(countObj) != 0;
+            }
+
+            return isSuccess;
+        }
+
+        /// <summary>
+        /// 新增记录并返回自增长主键值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="toInsertSql">生成完整SQL语句的函数</param>
+        /// <param name="entity">实体对象</param>
+        /// <returns></returns>
+        protected object InsertThenReturnID<T>(ToInsertSQL toInsertSql, T entity)
+        {
+            object id = null;
+            if (entity == null)
+            {
+                return id;
+            }
+
+            // 组装Sql
+            string tblName = string.Empty; // 表名称
+            Type modelType = typeof(T);
+            TblAttr tblAttr = (TblAttr)modelType.GetCustomAttributes(typeof(TblAttr), true)[0];
+            tblName = tblAttr.Name;
+
+            StringBuilder cols = new StringBuilder(); // 字段名称
+            StringBuilder colParams = new StringBuilder(); // 字段参数
+            List<ParamInfo> paramInfos = new List<ParamInfo>(); // 入参实体集合
+            PropertyInfo[] propertyInfos = modelType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            for (int i = 0; i < propertyInfos.Length; i++)
+            {
+                ColAttr colAttr = (ColAttr)propertyInfos[i].GetCustomAttributes(typeof(ColAttr), true)[0];
+                if (colAttr.IsPrimary && colAttr.IsAutoGenerate) continue;
+                if (propertyInfos[i].GetValue(entity, null) == null) continue;
+
+                cols.AppendFormat("{0},", (colAttr.Name.IndexOf(m_QuotingStart) >= 0 ? colAttr.Name : m_QuotingStart + colAttr.Name + m_QuotingEnd));
+                colParams.AppendFormat("{0}{1},"
+                    , m_Db.ParamPreffix
+                    , colAttr.Name.Replace(m_QuotingStart.ToString(), "").Replace(m_QuotingEnd.ToString(), ""));
+                paramInfos.Add(new ParamInfo(colAttr.Name.Replace(m_QuotingStart.ToString(), "").Replace(m_QuotingEnd.ToString(), ""), propertyInfos[i].GetValue(entity, null)));
+            }
+            if (cols.Length > 0)
+            {
+                cols.Remove(cols.Length - 1, 1);
+            }
+            if (colParams.Length > 0)
+            {
+                colParams.Remove(colParams.Length - 1, 1);
+            }
+
+            SQLInsertClause sqlInsertClause = new SQLInsertClause();
+            sqlInsertClause.Tbl = tblName;
+            sqlInsertClause.Cols = cols.ToString();
+            sqlInsertClause.Values = colParams.ToString();
+
+            string sql = toInsertSql(sqlInsertClause);
+
+            id = m_Db.ExecScalar(sql, paramInfos);
+            return id;
+        }
+        #endregion
+
+        #region 删除
+        /// <summary>
+        /// 删除记录
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="toDelSQL">生成完整SQL语句的函数</param>
+        /// <param name="where">Where子句</param>
+        /// <param name="paramInfos">Where子句参数值</param>
+        /// <returns></returns>
+        protected bool Del<T>(ToDelSQL toDelSQL, string where = "", List<ParamInfo> paramInfos = null)
+        {
+            bool isSuccess = false;
+
+            // 组装Sql
+            string tblName = string.Empty; // 表名称
+            Type modelType = typeof(T);
+            TblAttr tblAttr = (TblAttr)modelType.GetCustomAttributes(typeof(TblAttr), true)[0];
+            tblName = tblAttr.Name;
+
+            SQLDelClause sqlDelClause = new SQLDelClause();
+            sqlDelClause.From = tblName;
+            sqlDelClause.Where = string.Format(" {0} ", where);
+
+            string sql = toDelSQL(sqlDelClause);
+           
+            object countObj = m_Db.ExecNonQuery(sql, paramInfos);
+            if (null != countObj)
+            {
+                isSuccess = Convert.ToInt32(countObj) != 0;
+            }
+
+            return isSuccess;
+        }
+        #endregion
+
+        #region 修改
+        /// <summary>
+        /// 更新记录
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="toUpdateSQL">生成完整SQL语句的函数</param>
+        /// <param name="entity">实体对象</param>
+        /// <param name="whereSql">Where子句</param>
+        /// <returns></returns>
+        protected bool Update<T>(ToUpdateSQL toUpdateSQL, T entity, string whereSql = "")
+        {
+            bool result = false;
+
+            // 组装Sql
+            string tblName = string.Empty; // 表名称
+            Type modelType = typeof(T);
+            TblAttr tblAttr = (TblAttr)modelType.GetCustomAttributes(typeof(TblAttr), true)[0];
+            tblName = tblAttr.Name;
+
+            StringBuilder cols = new StringBuilder(); // set子句
+            StringBuilder wheres = new StringBuilder((StringHelper.IsAllWhite(whereSql) ? string.Empty : " " + whereSql + " ")); // where子句
+            List<ParamInfo> paramInfos = new List<ParamInfo>(); // 入参实体集合
+            PropertyInfo[] propertyInfos = modelType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            for (int i = 0; i < propertyInfos.Length; i++)
+            {
+                ColAttr colAttr = (ColAttr)propertyInfos[i].GetCustomAttributes(typeof(ColAttr), true)[0];
+                if (colAttr.IsPrimary)
+                {
+                    if (propertyInfos[i].GetValue(entity, null) != null
+                        && StringHelper.IsAllWhite(whereSql))
+                    {
+                        wheres.AppendFormat(" {3} {0}={1}{2} "
+                            , colAttr.Name
+                            , m_Db.ParamPreffix
+                            , propertyInfos[i].Name
+                            , (wheres.Length == 0 ? string.Empty : "AND"));
+                        paramInfos.Add(new ParamInfo(propertyInfos[i].Name, propertyInfos[i].GetValue(entity, null)));
+                    }
+                    continue;
+                }
+                if (propertyInfos[i].GetValue(entity, null) == null) continue;
+
+                cols.AppendFormat(" {0}={1}{2},"
+                    , (colAttr.Name.IndexOf(m_QuotingStart) >= 0 ? colAttr.Name : m_QuotingStart + colAttr.Name + m_QuotingEnd)
+                    , m_Db.ParamPreffix
+                    , propertyInfos[i].Name);
+                paramInfos.Add(new ParamInfo(propertyInfos[i].Name, propertyInfos[i].GetValue(entity, null)));
+            }
+            if (cols.Length > 0)
+            {
+                cols.Remove(cols.Length - 1, 1);
+            }
+
+            SQLUpdateClause sqlUpdateClause = new SQLUpdateClause();
+            sqlUpdateClause.Tbl = tblName;
+            sqlUpdateClause.Set = cols.ToString();
+            sqlUpdateClause.Where = wheres.ToString();
+
+            string sql = toUpdateSQL(sqlUpdateClause);
+
+            object countOjb = m_Db.ExecNonQuery(sql, paramInfos);
+            if (null != countOjb)
+            {
+                result = Convert.ToInt32(countOjb) != 0;
+            }
+
+            return result;
+        }
+        #endregion
+
+        #region 辅助方法
+       
+        #endregion
+    }
+
+    /// <summary>
+    /// 全表查询入参
+    /// </summary>
+    public class QueryParam
+    {
+        protected string whereSql = ""; // where子句
+        protected string orderBy = ""; // order by子句
+        protected List<string> excludedCols = null; // select子句中不包含的列名
+        protected Dictionary<string, string> colFns = null; // select子句中的列处理函数键值对，如Index : MAX({0})
+        protected List<ParamInfo> paramInfos = null; // // where子句中的参数
+
+        public string WhereSql { get { return whereSql; } set { whereSql = value; } }
+        public string OrderBy { get { return orderBy; } set { orderBy = value; } }
+        public List<string> ExcludedCols { get { return excludedCols; } set { excludedCols = value; } }
+        public Dictionary<string, string> ColFns { get { return colFns; } set { colFns = value; } }
+        public List<ParamInfo> ParamInfos { get { return paramInfos; } set { paramInfos = value; } }
+    }
+
+    /// <summary>
+    /// 分页查询入参
+    /// </summary>
+    public class QueryByPagingParam : QueryParam
+    {
+        public int StartIndex { get; set; }
+        public int PageSize { get; set; }
+    }
+
+    /// <summary>
+    /// 查询总记录数入参
+    /// </summary>
+    public class QueryCountParam
+    {
+        private string whereSql = ""; // where子句
+        private List<ParamInfo> paramInfos = null; // // where子句中的参数
+
+        public string WhereSql { get { return whereSql; } set { whereSql = value; } }
+        public List<ParamInfo> ParamInfos { get { return paramInfos; } set { paramInfos = value; } }
+    }
+
+    /// <summary>
+    /// 生成全表查询SQL的子句集合
+    /// </summary>
+    public class SQLQueryClause
+    {
+        public string Select { get; set; }
+        public string From { get; set; }
+        public string Where { get; set; }
+        public string OrderBy { get; set; }
+    }
+
+    /// <summary>
+    /// 生成分页查询SQL的子句集合
+    /// </summary>
+    public class SQLQueryByPagingClause : SQLQueryClause
+    {
+        public int StartIndex { get; set; }
+        public int PageSize { get; set; }
+    }
+
+    /// <summary>
+    /// 获取记录总数SQL的子句集合
+    /// </summary>
+    public class SQLQueryCountClause
+    {
+        public string Select { get; set; }
+        public string From { get; set; }
+        public string Where { get; set; }
+    }
+
+    /// <summary>
+    /// 生成全表插入SQL的子句集合
+    /// </summary>
+    public class SQLInsertClause
+    {
+        public string Tbl { get; set; }
+        public string Cols { get; set; }
+        public string Values { get; set; }
+    }
+
+    /// <summary>
+    /// 生成全表删除SQL的子句集合
+    /// </summary>
+    public class SQLDelClause
+    {
+        public string From { get; set; }
+        public string Where { get; set; }
+    }
+
+    /// <summary>
+    /// 生成全表更新SQL的子句集合
+    /// </summary>
+    public class SQLUpdateClause
+    {
+        public string Tbl { get; set; }
+        public string Set { get; set; }
+        public string Where { get; set; }
+    }
+}

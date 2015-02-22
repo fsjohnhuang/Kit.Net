@@ -1,0 +1,5 @@
+﻿2013/10/11 23:12:51  ----  System.ArgumentException: “null”的值对于“stream”无效。
+   在 System.Drawing.Image.FromStream(Stream stream, Boolean useEmbeddedColorManagement, Boolean validateImageData)
+   在 System.Drawing.Image.FromStream(Stream stream)
+   在 lpp.WinFormController.SelectLists.InitUI() 位置 f:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormController\SelectLists.cs:行号 38
+   在 lpp.WinFormController.SelectLists..ctor() 位置 f:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormController\SelectLists.cs:行号 27

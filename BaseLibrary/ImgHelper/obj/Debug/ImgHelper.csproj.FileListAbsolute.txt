@@ -1,0 +1,5 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ImgHelper\bin\Debug\ImgHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ImgHelper\bin\Debug\ImgHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ImgHelper\obj\Debug\ImgHelper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ImgHelper\obj\Debug\ImgHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ImgHelper\obj\Debug\ImgHelper.pdb

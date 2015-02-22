@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FAF40724-2F68-4B8B-B717-8F16C00F2AB7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lpp.DBHelper</RootNamespace>
+    <AssemblyName>DBHelper</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Utils\AlgorithmHelper.cs" />
+    <Compile Include="Utils\CollectionHelper.cs" />
+    <Compile Include="Utils\StringHelper.cs" />
+    <None Include="BaseHelper.cs20130915" />
+    <Compile Include="IDBHelper.cs" />
+    <Compile Include="IDBInstance.cs" />
+    <None Include="MSSQL\MSFns.cs20130915" />
+    <None Include="MSSQL\MSSQLHelper.cs20130915" />
+    <Compile Include="MSSQL\MSSQLHelper.cs" />
+    <Compile Include="MSSQL\MSSQLInstance.cs" />
+    <Compile Include="ParamInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLite\SQLiteHelper.cs" />
+    <Compile Include="SQLite\SQLiteInstance.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="BaseHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CollectionHelper\CollectionHelper.csproj">
+      <Project>{cd6bafa5-d874-4542-8b6b-f67b00f9619d}</Project>
+      <Name>CollectionHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConverterHelper\ConverterHelper.csproj">
+      <Project>{c6007d27-75e7-4802-bb58-4d03d0ddd26b}</Project>
+      <Name>ConverterHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBAttr\DBAttr.csproj">
+      <Project>{7461a222-cbfe-4ece-975a-1c4c22e0407e}</Project>
+      <Name>DBAttr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogHelper\LogHelper.csproj">
+      <Project>{c436ecf0-8db8-4452-9a9d-042d03656d0d}</Project>
+      <Name>LogHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

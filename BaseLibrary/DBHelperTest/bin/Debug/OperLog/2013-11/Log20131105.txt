@@ -1,0 +1,7 @@
+﻿2013/11/5 16:48:49  ----  System.BadImageFormatException: 未能加载文件或程序集“System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139”或它的某一个依赖项。试图加载格式不正确的程序。
+文件名:“System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139”
+   在 lpp.DBHelper.SQLite.SQLiteInstance..ctor(String fileOrConnStr)
+   在 lpp.DBHelper.SQLite.SQLiteHelper..ctor(String fileOrConnStr) 位置 f:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\SQLite\SQLiteHelper.cs:行号 11
+   在 DBHelperTest.Program.Main(String[] args) 位置 f:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelperTest\Program.cs:行号 46
+
+

@@ -1,0 +1,1772 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>C1.Win.C1SuperTooltip.2</name>
+  </assembly>
+  <members>
+    <member name="T:C1.Win.C1SuperTooltip.C1SuperErrorProvider">
+      <summary>
+            Provides a user interface for indicating that a control on a form has an error associated with it.
+            </summary>
+      <remarks>
+        <b>C1SuperErrorProvider</b> presents a mechanism for indicating to the end user that a control
+            on a form has an error associated with it. If an error description string is specified for
+            the control, an icon appears next to the control. The icon flashes in the manner specified
+            by <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.BlinkStyle" />, at the rate specified by <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.BlinkRate" />. When the mouse hovers over the icon,
+            a <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> appears showing the error description as HTML text.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1SuperTooltip.C1SuperErrorProvider" /> component.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1SuperTooltip.C1SuperErrorProvider" /> component.
+            </summary>
+      <param name="container">The <see cref="T:System.ComponentModel.IContainer" /> to monitor for errors.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.#ctor(System.Windows.Forms.ContainerControl)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1SuperTooltip.C1SuperErrorProvider" /> component.
+            </summary>
+      <param name="parentControl">The container of the control to monitor for errors.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.Dispose(System.Boolean)">
+      <summary> 
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.GetError(System.Windows.Forms.Control)">
+      <summary>
+            Returns the current error description text for the specified control.
+            </summary>
+      <param name="control">The item to get the error description text for.</param>
+      <returns>The error description text for the specified control.</returns>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.SetError(System.Windows.Forms.Control,System.String)">
+      <summary>
+            Sets the error description text for the specified control.
+            </summary>
+      <param name="control">The control to set the error description text for.</param>
+      <param name="value">The error description text.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.GetIconAlignment(System.Windows.Forms.Control)">
+      <summary>
+            Gets a value indicating where the error icon should be placed in relation to the control.
+            </summary>
+      <param name="control">The control to get the icon location for.</param>
+      <returns>One of the ErrorIconAlignment values. The default icon alignment is MiddleRight.</returns>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.SetIconAlignment(System.Windows.Forms.Control,System.Windows.Forms.ErrorIconAlignment)">
+      <summary>
+            Sets the location where the error icon should be placed in relation to the control.
+            </summary>
+      <param name="control">The control to set the icon location for.</param>
+      <param name="value">One of the ErrorIconAlignment values.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.GetIconPadding(System.Windows.Forms.Control)">
+      <summary>
+            Returns the amount of extra space to leave next to the error icon.
+            </summary>
+      <param name="control">The control to get the padding for.</param>
+      <returns>The number of pixels to leave between the icon and the control.</returns>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.SetIconPadding(System.Windows.Forms.Control,System.Int32)">
+      <summary>
+            Sets the amount of extra space to leave between the specified control and the error icon.
+            </summary>
+      <param name="control">The control to set the padding for.</param>
+      <param name="padding">The number of pixels to add between the icon and the control.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.ShouldSerializeIcon">
+      <summary>
+            This member is for internal use only.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.ResetIcon">
+      <summary>
+            This member is for internal use only.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.OnIconClick(C1.Win.C1SuperTooltip.IconClickEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1SuperTooltip.C1SuperErrorProvider.IconClick" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:C1.Win.C1SuperTooltip.IconClickEventArgs" /> object that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.OnIconDoubleClick(C1.Win.C1SuperTooltip.IconClickEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1SuperTooltip.C1SuperErrorProvider.IconDoubleClick" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:C1.Win.C1SuperTooltip.IconClickEventArgs" /> object that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.BindToDataAndErrors(System.Object,System.String)">
+      <summary>
+            Provides a method to set both the <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.DataSource" /> and <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.DataMember" /> at run time.
+            </summary>
+      <param name="newDataSource">A data set based on the IList interface to be monitored for errors. Typically, this is a DataSet to be monitored for errors.</param>
+      <param name="newDataMember">A collection within the newDataSource to monitor for errors. Typically, this will be a DataTable.</param>
+      <remarks>
+            To avoid conflicts at run time that can occur when changing <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.DataSource" /> and <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.DataMember" />,
+            you should use BindToDataAndErrors instead of setting <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.DataSource" /> and <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.DataMember" /> individually.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.UpdateBinding">
+      <summary>
+            Provides a method to update the bindings of the <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.DataSource" />, <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.DataMember" />, and the error text.
+            </summary>
+      <remarks>
+            Typically, you call this method after you have called <see cref="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.BindToDataAndErrors(System.Object,System.String)" />.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperErrorProvider.Clear">
+      <summary>
+            Removes all error glyphs and clears their settings associated with this component.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.Site">
+      <summary>
+            Gets or sets the ISite of the Component.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.ContainerControl">
+      <summary>
+            Gets or sets a value indicating the parent control for this <see cref="T:C1.Win.C1SuperTooltip.C1SuperErrorProvider" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.ToolTip">
+      <summary>
+            Gets or sets the associated <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> component displaying the error description text.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.DataSource">
+      <summary>
+            Gets or sets the data source that the <see cref="T:C1.Win.C1SuperTooltip.C1SuperErrorProvider" /> monitors.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.DataMember">
+      <summary>
+            Gets or sets the list within a data source to monitor.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.Icon">
+      <summary>
+            Gets or sets the Icon that is displayed next to a control when an error description text has been set for the control.
+            </summary>
+      <remarks>
+            The Icon property is used if the <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.Image" /> property is empty.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.Image">
+      <summary>
+            Gets or sets the Image that is displayed next to a control when an error description text has been set for the control.
+            </summary>
+      <remarks>
+            If the Image is not empty it is used instead of the <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.Icon" />.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.ImageHot">
+      <summary>
+            Gets or sets the Image that appears next to a control when the mouse hovers over the error icon.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.Antiphased">
+      <summary>
+            Gets or sets whether the error icon should blink in different phase for various controls.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.BlinkCount">
+      <summary>
+            Gets or sets the number of icon blinks when a new error text is set for the control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.BlinkRate">
+      <summary>
+            Gets or sets the rate, in milliseconds, at which the error icon should flash. The default is 250 milliseconds.
+            </summary>
+      <remarks>
+            The error icon flashes at the specified rate. A value of zero sets <see cref="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.BlinkStyle" /> to NeverBlink.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.BlinkStyle">
+      <summary>
+            Gets or sets a value indicating when the error icon flashes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperErrorProvider.Tag">
+      <summary>
+            Gets or sets an object that contains data about the component.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1SuperTooltip.C1SuperErrorProvider.IconClick">
+      <summary>
+            Occurs when the error icon is clicked by the mouse.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1SuperTooltip.C1SuperErrorProvider.IconDoubleClick">
+      <summary>
+            Occurs when the error icon is clicked two or more times.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.IconClickEventHandler">
+      <summary>
+            Represents the method that will handle the <see cref="E:C1.Win.C1SuperTooltip.C1SuperErrorProvider.IconClick" /> event.
+            </summary>
+      <param name="sender">Object that fired the event.</param>
+      <param name="e">
+        <see cref="T:C1.Win.C1SuperTooltip.IconClickEventArgs" /> object that contains the event data.</param>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.IconClickEventArgs">
+      <summary>
+            Provides data for the <see cref="E:C1.Win.C1SuperTooltip.C1SuperErrorProvider.IconClick" /> event.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.IconClickEventArgs.#ctor(System.Windows.Forms.Control,System.String,System.Windows.Forms.MouseButtons,System.Int32,System.Drawing.Point)">
+      <summary>
+            Initializes a new instance of an <see cref="T:C1.Win.C1SuperTooltip.IconClickEventArgs" />.
+            </summary>
+      <param name="control">Control that has an associated error.</param>
+      <param name="error">Error description text.</param>
+      <param name="button">Button that was clicked on the icon.</param>
+      <param name="clicks">Number of times the mouse button was clicked.</param>
+      <param name="location">Location of the mouse in screen coordinates.</param>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.IconClickEventArgs.Control">
+      <summary>
+            Gets the control that has an associated error.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.IconClickEventArgs.Error">
+      <summary>
+            Gets the error description text.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.IconClickEventArgs.Button">
+      <summary>
+            Gets which mouse button was clicked on the icon.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.IconClickEventArgs.Clicks">
+      <summary>
+            Gets the number of times the mouse button was clicked.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.IconClickEventArgs.Location">
+      <summary>
+            Gets the location of the mouse (in screen coordinates) during the generating event.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.IconClickEventArgs.X">
+      <summary>
+            Gets the x-coordinate of the mouse during the generating event.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.IconClickEventArgs.Y">
+      <summary>
+            Gets the y-coordinate of the mouse during the generating event.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.C1SuperLabel">
+      <summary>
+            Represents a label that shows static information on a form.
+            </summary>
+      <remarks>
+        <para>The <b>C1SuperLabel</b> control is virtually identical to the 
+            <see cref="T:System.Windows.Forms.Label" /> control, with one significant difference: 
+            <b>C1SuperLabel</b> displays HTML text instead of plain text. This way, your labels can 
+            have multiple fonts, colors, tables, lists, and images.</para>
+        <para>
+          <b>C1SuperLabel</b> does not use IE to render the HTML content. Instead, it has its own 
+            light-weight HTML parser and renderer. This means the output you get will not be always 
+            be 100% compatible with IE (or FireFox), but in most cases it should be close.
+            <b>C1SuperLabel</b> supports cascading style sheets, tables, and most other HTML features.
+            For more details, see the <see cref="P:C1.Win.C1SuperTooltip.C1SuperLabel.Text" /> property.</para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1SuperTooltip.C1SuperLabel" /> control.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.OnLinkClicked(C1.Win.C1SuperTooltip.C1SuperLabelLinkClickedEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1SuperTooltip.C1SuperLabel.LinkClicked" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:C1.Win.C1SuperTooltip.C1SuperLabelLinkClickedEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.Measure">
+      <summary>
+            Measures the width and height of the control content.
+            </summary>
+      <returns>
+        <see cref="T:System.Drawing.Size" /> object that represents the size of the content, in pixels.</returns>
+      <example>
+            The code below scans all the rows in a <b>C1FlexGrid</b> and calculates the width needed
+            to display the cell with the widest content:
+            <code>
+            private int GetMaximumCellWidth(int col)
+            {
+              // maximum width is unknown
+              int maxWidth = -1;
+            
+              // scan all rows to find the widest content
+              for (int row = 0; row &lt; _flex.Rows.Count; row++)
+              {
+                // get cell content
+                string text = _flex.GetDataDisplay(row, col);
+            
+                // check that the cell contains html
+                if (!string.IsNullOrEmpty(text) &amp;&amp;
+                     text.StartsWith("&lt;html&gt;"))
+                {
+                  // measure width needed to render the Html
+                  _superLabel.Text = text;
+                  int width = _superLabel.Measure().Width;
+            
+                  // save maximum width
+                  if (width &gt; maxWidth)
+                    maxWidth = width;
+              }
+              return maxWidth;
+            }
+            </code></example>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.Measure(System.Int32)">
+      <summary>
+            Measures the height of the control content when rendered with a given width.
+            </summary>
+      <param name="width">Width used to calculate word-wrapping.</param>
+      <returns>
+        <see cref="T:System.Drawing.Size" /> object that represents the size of the content, in pixels.</returns>
+      <example>
+            The code below scans all the columns in a <b>C1FlexGrid</b> and calculates the height needed
+            to display the cell with the tallest content:
+            <code>
+            private int GetMaximumCellHeight(int row)
+            {
+              // maximum height is unknown
+              int maxHeight = -1;
+            
+              // scan all columns to find the tallest content
+              for (int col = 0; col &lt; _flex.Cols.Count; col++)
+              {
+                // get cell content
+                string text = _flex.GetDataDisplay(row, col);
+            
+                // check that the cell contains html
+                if (!string.IsNullOrEmpty(text) &amp;&amp;
+                     text.StartsWith("&lt;html&gt;"))
+                {
+                  // measure height needed to render the Html
+                  _superLabel.Text = text;
+                  int width = _flex.Cols[col].WidthDisplay;
+                  int height = _superLabel.Measure(width).Height;
+            
+                  // save maximum height
+                  if (height &gt; maxHeight)
+                    maxHeight = height;
+              }
+              return maxHeight;
+            }
+            </code></example>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.DrawToGraphics(System.Drawing.Graphics,System.Drawing.Rectangle)">
+      <summary>
+            Draws the control content into a given <see cref="T:System.Drawing.Graphics" /> object.
+            </summary>
+      <param name="g">
+        <see cref="T:System.Drawing.Graphics" /> object where the content will be rendered.</param>
+      <param name="bounds">
+        <see cref="T:System.Drawing.Rectangle" /> that specifies the bounds where the content will be rendered.</param>
+      <example>
+            The example below uses the <b>DrawToGraphics</b> method to render Html in a <b>C1FlexGrid</b> control.
+            Grid cells containing text that starts with an &lt;html&gt; tag are rendered as Html. Other cells are
+            rendered by the grid as usual.
+            <code>
+            void _flex_OwnerDrawCell(object sender, OwnerDrawCellEventArgs e)
+            {
+              // get cell content
+              string text = _flex.GetDataDisplay(e.Row, e.Col);
+            
+              // check that the cell contains html
+              if (!string.IsNullOrEmpty(text) &amp;&amp;
+                   text.StartsWith("&lt;html&gt;"))
+              {
+                // set label back color and content
+                _superLabel.BackColor = e.Style.BackColor;
+                _superLabel.Text = text;
+            
+                // draw the Html into grid cell
+                _superLabel.DrawToGraphics(e.Graphics, e.Bounds);
+            
+                // cell has been drawn
+                e.Handled = true;
+              }
+            }
+            </code></example>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.DrawToGraphics(System.Drawing.Graphics,System.Drawing.RectangleF,System.Int32)">
+      <summary>
+            Draws an HTML string in the specified rectangle with the specified <see cref="T:System.Drawing.Brush" /> and <see cref="T:System.Drawing.Font" /> objects,
+            starting at a given offset within the string.
+            </summary>
+      <param name="g">
+        <see cref="T:System.Drawing.Graphics" /> object where the content will be rendered.</param>
+      <param name="bounds">
+        <see cref="T:System.Drawing.Rectangle" /> that specifies the bounds where the content will be rendered.</param>
+      <param name="offset">Offset of the first line to draw (usually the return value of a previous call to <b>DrawStringHtml</b>).</param>
+      <returns>The offset of the first line that was not printed because it did not fit in the specified rectangle, or the value of 
+            <see cref="F:System.Int32.MaxValue" /> if the entire string was rendered.</returns>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.OnPaint(System.Windows.Forms.PaintEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.Paint" /> event.
+            </summary>
+      <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.ProcessMnemonic(System.Char)">
+      <summary>
+            Processes a mnemonic character.
+            </summary>
+      <param name="charCode">The character to process. </param>
+      <returns>True if the character was processed as a mnemonic by the control; otherwise, false.</returns>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.OnTextChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.TextChanged" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.OnBackColorChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.BackColorChanged" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.OnForeColorChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.ForeColorChanged" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.OnFontChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.FontChanged" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.OnSizeChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.SizeChanged" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.OnPaddingChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="!:PaddingChanged" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.MouseDown" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.Windows.Forms.MouseEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.MouseMove" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.Windows.Forms.MouseEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.OnCursorChanged(System.EventArgs)">
+      <summary>
+            Occurs when the value of the <see cref="T:System.Windows.Forms.Cursor" /> property changes. 
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabel.Dispose(System.Boolean)">
+      <summary>
+            Releases resources used by the component
+            </summary>
+      <param name="disposing">True to release all resources; false to release unmanaged resources only.</param>
+    </member>
+    <member name="E:C1.Win.C1SuperTooltip.C1SuperLabel.LinkClicked">
+      <summary>
+            Event that fires when the user clicks a hyperlink within a <see cref="T:C1.Win.C1SuperTooltip.C1SuperLabel" /> control.
+            </summary>
+      <remarks>
+            Hyperlinks are created using "A" tags in the HTML source text. When hyperlinks are clicked,
+            the <b>LinkClicked</b> event fires and provides information about the link. The event handler
+            can then take appropriate action.
+            </remarks>
+      <example>
+            The example below creates some hyperlinks using "A" tags. When the user clicks the link, the
+            event handler shows a message box.
+            <code>
+            // configure c1superLabel
+            c1superLabel.AutoSize = true;
+            c1superLabel.Text =
+                "click &lt;a href='about'&gt;&lt;b&gt;HERE&lt;/b&gt;&lt;/a&gt; to see an about box.&lt;br&gt;" +
+                "or click &lt;a href='time'&gt;&lt;b&gt;HERE&lt;/b&gt;&lt;/a&gt; to see the current time.";
+            
+            // attach event handler
+            c1superLabel.LinkClicked += new C1SuperLabelLinkClickedEventHandler(c1superLabel_LinkClicked);
+            // ...
+            
+            void c1superLabel_LinkClicked(object sender, C1SuperLabelLinkClickedEventArgs e)
+            {
+              if (e.HRef == "about")
+              {
+                MessageBox.Show("About C1SuperLabel!");
+              }
+              else if (e.HRef == "time")
+              {
+                MessageBox.Show("The time is " + DateTime.Now.ToShortTimeString());
+              }
+            }
+            </code></example>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperLabel.BorderStyle">
+      <summary>
+            Gets or sets the type of border around the control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperLabel.Text">
+      <summary>
+            Gets or sets the HTML text that is displayed in the control.
+            </summary>
+      <remarks>
+        <para>
+          <see cref="T:C1.Win.C1SuperTooltip.C1SuperLabel" /> can display HTML text, including cascading style sheets,
+            lists, tables, and images. To include images in your tooltips, use an &lt;img&gt; tag as
+            usual, for example:</para>
+        <code>&lt;img src='[resourcename]'/&gt;</code>
+        <para>where <code>[resourcename]</code> is the name of an embedded resource that
+            contains the image. The example below illustrates this.</para>
+      </remarks>
+      <example>
+        <para>The code below uses a <see cref="T:C1.Win.C1SuperTooltip.C1SuperLabel" /> to display a table with some images
+            in it. The images are retrieved from the current application's resources.</para>
+        <code>
+            _c1SuperLabel.Text =
+              "&lt;table&gt;" +
+              "&lt;tr&gt;" +
+              "&lt;td&gt;&lt;img src='newToolStripButton.Image'&gt;" +
+              "&lt;td&gt;This  is the second cell in the top row" +
+              "&lt;tr&gt;" +
+              "&lt;td&gt;&lt;img src='openToolStripButton.Image'&gt;" +
+              "&lt;td&gt;This  is the second cell in the bottom row." +
+              "&lt;/table&gt;";
+            </code>
+      </example>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperLabel.Images">
+      <summary>
+            Gets a collection of images that may be shown in the label.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperLabel.UseMnemonic">
+      <summary>
+            Gets or sets whether ampersands (&amp;) are used to indicate the next character is a hot key.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperLabel.AutoSize">
+      <summary>
+            Gets or sets a value indicating whether the control is automatically resized to display its entire contents. 
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperLabel.BackgroundImageLayout">
+      <summary>
+            Gets or sets the background image layout as defined in the <see cref="P:C1.Win.C1SuperTooltip.C1SuperLabel.BackgroundImageLayout" /> enumeration. 
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperLabel.BackgroundImage">
+      <summary>
+            Gets or sets the background image displayed in the control. 
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.C1SuperLabelLinkClickedEventHandler">
+      <summary>
+            Represents the method that will handle the <see cref="E:C1.Win.C1SuperTooltip.C1SuperLabel.LinkClicked" /> event.
+            </summary>
+      <param name="sender">Object that fired the event.</param>
+      <param name="e">
+        <see cref="T:System.Windows.Forms.LinkClickedEventArgs" /> object that contains the event data.</param>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.C1SuperLabelLinkClickedEventArgs">
+      <summary>
+            Provides data for the <see cref="E:C1.Win.C1SuperTooltip.C1SuperLabel.LinkClicked" /> event.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperLabelLinkClickedEventArgs.#ctor(System.Windows.Forms.MouseButtons,System.String,System.String)">
+      <summary>
+            Initializes a new instance of a <see cref="T:System.Windows.Forms.LinkClickedEventArgs" />.
+            </summary>
+      <param name="button">
+        <see cref="T:System.Windows.Forms.MouseButtons" /> that was pressed on the link.</param>
+      <param name="hRef">Value of the link's HREF attribute.</param>
+      <param name="target">Value of the link's TARGET attribute.</param>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperLabelLinkClickedEventArgs.Button">
+      <summary>
+            Gets the button that was clicked on the link.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperLabelLinkClickedEventArgs.HRef">
+      <summary>
+            Gets the value of the link's HREF attribute.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperLabelLinkClickedEventArgs.Target">
+      <summary>
+            Gets the value of the link's TARGET attribute.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.BackgroundGradient">
+      <summary>
+            Specifies a background gradient for the ToolTip.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundGradient.None">
+      <summary>
+            Use no background gradient.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundGradient.Automatic">
+      <summary>
+            Use a gradient that matches the current system Visual Style.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundGradient.Silver">
+      <summary>
+            Use a silver background gradient.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundGradient.Blue">
+      <summary>
+            Use a blue background gradient.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundGradient.Gold">
+      <summary>
+            Use a gold background gradient.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundGradient.Olive">
+      <summary>
+            Use an olive background gradient.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundGradient.Vista">
+      <summary>
+            Use the Vista-style background gradient.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.BackgroundImageLayout">
+      <summary>
+            Specifies the layout logic used to display the background image.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundImageLayout.None">
+      <summary>
+            The image is left-aligned at the top across the control's client rectangle.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundImageLayout.Tile">
+      <summary>
+            The image is tiled across the control's client rectangle.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundImageLayout.Center">
+      <summary>
+            The image is centered within the control's client rectangle.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundImageLayout.Stretch">
+      <summary>
+            The image is stretched across the control's client rectangle. 
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundImageLayout.Zoom">
+      <summary>
+            The image is enlarged within the control's client rectangle.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1SuperTooltip.BackgroundImageLayout.TileStretch">
+      <summary>
+            The image is split into nine pieces and tiled within the control's client rectangle.
+            Center tiles are stretched, corner tiles are rendered with the original size.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.C1SuperTooltip">
+      <summary>
+            Represents a pop-up window that displays a brief description of a control's purpose 
+            when the mouse hovers over the control.
+            </summary>
+      <remarks>
+        <para>The <b>C1SuperTooltip</b> component is virtually identical to the 
+            <see cref="T:System.Windows.Forms.ToolTip" /> component, with one significant difference: 
+            <b>C1SuperTooltip</b> displays HTML text instead of plain text. This way, your tooltips can 
+            have multiple fonts, colors, tables, lists, and images. See the <see cref="M:C1.Win.C1SuperTooltip.C1SuperTooltip.SetToolTip(System.Windows.Forms.Control,System.String)" />
+            method for details and examples.</para>
+        <para>You can associate HTML tooltips with any <see cref="T:System.Windows.Forms.Control" /> or
+            <see cref="T:System.Windows.Forms.ToolStripItem" /> on the form.</para>
+        <para>
+          <b>C1SuperTooltip</b> does not use IE to render the HTML content. Instead, it has its own 
+            light-weight HTML parser and renderer. This means the output you get will not be always 
+            be 100% compatible with IE (or FireFox), but in most cases it should be close.
+            <b>C1SuperTooltip</b> supports cascading style sheets, tables, and most other HTML features.
+            For more details, see the <see cref="M:C1.Win.C1SuperTooltip.C1SuperTooltip.SetToolTip(System.Windows.Forms.Control,System.String)" /> method.</para>
+        <para>The <b>C1SuperTooltip</b> component allows you to provide help to users when they place 
+            the mouse cursor over a control. The <b>C1SuperTooltip</b> component is typically used to 
+            alert users to the intended use of a control. For example, you could specify tooltip 
+            text for a <b>TextBox</b> control that accepts a name, specifying the format of the 
+            name to typed into the control. In addition to providing help, you can also use the 
+            <b>C1SuperTooltip</b> component to provide run time status information. For example, you 
+            could use the <b>C1SuperTooltip</b> component to display connection speed and line quality 
+            data when the user moves the mouse cursor over a <b>PictureBox</b> control that displays 
+            Internet connection status.</para>
+        <para>The <b>C1SuperTooltip</b> component provides properties that enable you to modify how 
+            long and how quickly a tooltip window is displayed. The <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.AutoPopDelay" /> 
+            property determines how long a tooltip window is displayed; the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.InitialDelay" /> and 
+            <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.ReshowDelay" /> properties determine the delay before a tooltip window is displayed. 
+            To set all of these properties to a consistent pattern, you can use the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.AutomaticDelay" />
+            property. This value is then used to calculate and set the values of the other delay properties.
+            To enable a control's tooltip text to be displayed regardless of whether the <b>Form</b> or 
+            container the control is contained within is enabled, you can use the <b>ShowAlways</b> property.
+            If you want to disable all tooltip text from being displayed in your application, you can 
+            use the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.Active" /> property.</para>
+        <para>The <b>C1SuperTooltip</b> component can be used in any container. To specify a specific 
+            container to use the <b>C1SuperTooltip</b> component within, use the <b>C1SuperTooltip</b> constructor. 
+            In order for tooltip text to be displayed when the user moves the mouse cursor over a control,
+            the tooltip text to be displayed must be associated with the control within an instance of the
+            <b>C1SuperTooltip</b> component. To associate tooltip text with a control, use the <see cref="M:C1.Win.C1SuperTooltip.C1SuperTooltip.SetToolTip(System.Windows.Forms.Control,System.String)" />
+            method. The <b>SetToolTip</b> method can be called more than once for the same control to change
+            the text that is associated with the control. If you want to get the text that is associated 
+            with a control, use the <see cref="M:C1.Win.C1SuperTooltip.C1SuperTooltip.GetToolTip(System.Windows.Forms.Control)" /> method. To remove all tooltip text 
+            associations with an instance of the <b>C1SuperTooltip</b> component, use the <see cref="M:C1.Win.C1SuperTooltip.C1SuperTooltip.RemoveAll" />
+            method.</para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> component.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> component.
+            </summary>
+      <param name="container">An <see cref="T:System.ComponentModel.IContainer" />that represents the container of the <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" />.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Dispose(System.Boolean)">
+      <summary> 
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.GetToolTip(System.Windows.Forms.Control)">
+      <summary>
+            Retrieves the <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> text associated with the specified control.
+            </summary>
+      <param name="control">The <b>Control</b> for which to retrieve the tooltip text.</param>
+      <returns>The tooltip text for the specified control.</returns>
+      <remarks>
+            This method enables you to retrieve the tooltip text for any control. If the tooltip text 
+            changes dynamically in an application, you can use this method to find out what text is 
+            displayed at any point, depending on the state of the application. To change the text 
+            that a control is displaying, use the <see cref="M:C1.Win.C1SuperTooltip.C1SuperTooltip.SetToolTip(System.Windows.Forms.Control,System.String)" /> method.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.SetToolTip(System.Windows.Forms.Control,System.String)">
+      <summary>
+            Associates tooltip HTML text with the specified control.
+            <param name="control">The <b>Control</b> to associate the tooltip text with.</param><param name="text">The tooltip text to display when the mouse cursor is over the control.</param></summary>
+      <remarks>
+        <para>In addition to specifying the tooltip text to display for a control, you can also use 
+            this method to modify the tooltip text for a control. Calling the <b>SetToolTip</b> 
+            method more than once for a given control does not specify multiple tooltip text to 
+            display for a control but instead changes the current tooltip text for the control.</para>
+        <para>To determine the tooltip text that is associated with a control at run time, you can 
+            use the <see cref="M:C1.Win.C1SuperTooltip.C1SuperTooltip.GetToolTip(System.Windows.Forms.Control)" /> method.</para>
+        <para>
+          <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> can display HTML text, including cascading style sheets,
+            lists, tables, and images. To include images in your tooltips, use an &lt;img&gt; tag as
+            usual, for example:</para>
+        <code>&lt;img src='[resourcename]'/&gt;</code>
+        <para>where <code>[resourcename]</code> is the name of an embedded resource that
+            contains the image. The second example below illustrates this.</para>
+      </remarks>
+      <example>
+            The code below associates an HTML snippet with a <b>ListBox</b> control. The HTML
+            contains two lines of text with some bold words in it.
+            <code>
+            _C1SuperTooltip1.SetToolTip(this.listBox1,
+              "This is a tip &lt;b&gt;with bold&lt;/b&gt; text in it&lt;br&gt;it is also multi-line...");
+            </code>
+            The code below associates an HTML snippet with a <b>RichTextBox</b> control. The HTML
+            contains a table with two columns. The first column contains an image, loaded from the
+            application's resources. In this case, the application must include an embedded resource 
+            named 'tips.gif'. The second column contains some formatted text.
+            <code>
+            _C1SuperTooltip1.SetToolTip(richTextBox1,
+              @"&lt;table&gt;&lt;tr&gt;
+              &lt;td&gt;&lt;img src='tips.gif'/&gt;&lt;/td&gt;
+              &lt;td&gt;This is a multiline&lt;br&gt;tooltip&lt;br&gt;&lt;b&gt;associated
+              &lt;/b&gt;&lt;br&gt;with the rich text box...&lt;/td&gt;
+              &lt;/tr&gt;&lt;/table&gt;");
+            </code></example>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.SetToolTip(System.Windows.Forms.ToolStripItem,System.String)">
+      <summary>
+            Associates tooltip HTML text with the specified <see cref="T:System.Windows.Forms.ToolStripItem" />.
+            </summary>
+      <param name="item">The <b>ToolStripItem</b> to associate the tooltip text with.</param>
+      <param name="text">The tooltip text to display when the mouse cursor is over the control.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.RemoveAll">
+      <summary>
+            Removes all tooltip text currently associated with the <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> component.
+            </summary>
+      <remarks>
+            You can use this method to remove all tooltip text that is associated with the 
+            <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> component. To disable the display of text instead of removing all 
+            tooltip text from the <b>C1SuperTooltip</b> control, use the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.Active" /> property.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.OnPopup(C1.Win.C1SuperTooltip.PopupEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1SuperTooltip.C1SuperTooltip.Popup" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:C1.Win.C1SuperTooltip.PopupEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.OnLinkClicked(C1.Win.C1SuperTooltip.C1SuperLabelLinkClickedEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1SuperTooltip.C1SuperTooltip.LinkClicked" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:C1.Win.C1SuperTooltip.C1SuperLabelLinkClickedEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Show(System.String,System.Windows.Forms.Control,System.Drawing.Point,System.Int32)">
+      <summary>
+            Shows the tooltip with the specified text, for the specified control, at the specified position, for a specified amount of time.
+            </summary>
+      <param name="text">Text to be displayed in the tooltip.</param>
+      <param name="control">
+        <see cref="T:System.Windows.Forms.Control" /> that the tooltip is associated with.</param>
+      <param name="pt">
+        <see cref="T:System.Drawing.Point" /> in client coordinates where the tooltip is to be displayed.</param>
+      <param name="duration">Duration of the tooltip, in milliseconds.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Show(System.String,System.Windows.Forms.Control,System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Shows the tooltip with the specified text, for the specified control, at the specified position, for a specified amount of time.
+            </summary>
+      <param name="text">Text to be displayed in the tooltip.</param>
+      <param name="control">
+        <see cref="T:System.Windows.Forms.Control" /> that the tooltip is associated with.</param>
+      <param name="x">X client coordinate where the tooltip is to be displayed.</param>
+      <param name="y">Y client coordinate where the tooltip is to be displayed.</param>
+      <param name="duration">Duration of the tooltip, in milliseconds.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Show(System.String,System.Windows.Forms.Control,System.Int32)">
+      <summary>
+            Shows the tooltip with the specified text, for the specified control, for a specified amount of time.
+            </summary>
+      <param name="text">Text to be displayed in the tooltip.</param>
+      <param name="control">
+        <see cref="T:System.Windows.Forms.Control" /> that the tooltip is associated with.</param>
+      <param name="duration">Duration of the tooltip, in milliseconds.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Show(System.String,System.Windows.Forms.Control,System.Drawing.Point)">
+      <summary>
+            Shows the tooltip with the specified text, for the specified control, at the specified position.
+            </summary>
+      <param name="text">Text to be displayed in the tooltip.</param>
+      <param name="control">
+        <see cref="T:System.Windows.Forms.Control" /> that the tooltip is associated with.</param>
+      <param name="pt">
+        <see cref="T:System.Drawing.Point" /> in client coordinates where the tooltip is to be displayed.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Show(System.String,System.Windows.Forms.Control,System.Int32,System.Int32)">
+      <summary>
+            Shows the tooltip with the specified text, for the specified control, at the specified position.
+            </summary>
+      <param name="text">Text to be displayed in the tooltip.</param>
+      <param name="control">
+        <see cref="T:System.Windows.Forms.Control" /> that the tooltip is associated with.</param>
+      <param name="x">X client coordinate where the tooltip is to be displayed.</param>
+      <param name="y">Y client coordinate where the tooltip is to be displayed.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Show(System.String,System.Windows.Forms.Control)">
+      <summary>
+            Shows the tooltip with the specified text for the specified control.
+            </summary>
+      <param name="text">Text to be displayed in the tooltip.</param>
+      <param name="control">
+        <see cref="T:System.Windows.Forms.Control" /> that the tooltip is associated with.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Hide">
+      <summary>
+            Hides the <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> if it is currently visible.
+            </summary>
+      <remarks>
+            This method does not disable or otherwise prevent the tooltip from being displayed in the future.
+            To do that, set the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.Active" /> property to false instead.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Hide(System.Windows.Forms.Control)">
+      <summary>
+            Hides the <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> if it is currently visible.
+            </summary>
+      <param name="control">The <see cref="T:System.Windows.Forms.Control" /> that the <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> is associated with.</param>
+      <remarks>
+            This method does not disable or otherwise prevent the tooltip from being displayed in the future.
+            To do that, set the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.Active" /> property to false instead.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Show(System.String,System.Windows.Forms.ToolStripItem,System.Drawing.Point,System.Int32)">
+      <summary>
+            Shows the tooltip with the specified text, for the specified <see cref="T:System.Windows.Forms.ToolStripItem" />, at the specified position, for a specified amount of time.
+            </summary>
+      <param name="text">Text to be displayed in the tooltip.</param>
+      <param name="item">
+        <see cref="T:System.Windows.Forms.ToolStripItem" /> that the tooltip is associated with.</param>
+      <param name="pt">
+        <see cref="T:System.Drawing.Point" /> in client coordinates where the tooltip is to be displayed.</param>
+      <param name="duration">Duration of the tooltip, in milliseconds.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Show(System.String,System.Windows.Forms.ToolStripItem,System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Shows the tooltip with the specified text, for the specified <see cref="T:System.Windows.Forms.ToolStripItem" />, at the specified position, for a specified amount of time.
+            </summary>
+      <param name="text">Text to be displayed in the tooltip.</param>
+      <param name="item">
+        <see cref="T:System.Windows.Forms.ToolStripItem" /> that the tooltip is associated with.</param>
+      <param name="x">X client coordinate where the tooltip is to be displayed.</param>
+      <param name="y">Y client coordinate where the tooltip is to be displayed.</param>
+      <param name="duration">Duration of the tooltip, in milliseconds.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Show(System.String,System.Windows.Forms.ToolStripItem,System.Int32)">
+      <summary>
+            Shows the tooltip with the specified text, for the specified <see cref="T:System.Windows.Forms.ToolStripItem" />, for a specified amount of time.
+            </summary>
+      <param name="text">Text to be displayed in the tooltip.</param>
+      <param name="item">
+        <see cref="T:System.Windows.Forms.ToolStripItem" /> that the tooltip is associated with.</param>
+      <param name="duration">Duration of the tooltip, in milliseconds.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Show(System.String,System.Windows.Forms.ToolStripItem,System.Drawing.Point)">
+      <summary>
+            Shows the tooltip with the specified text, for the specified <see cref="T:System.Windows.Forms.ToolStripItem" />, at the specified position.
+            </summary>
+      <param name="text">Text to be displayed in the tooltip.</param>
+      <param name="item">
+        <see cref="T:System.Windows.Forms.ToolStripItem" /> that the tooltip is associated with.</param>
+      <param name="pt">
+        <see cref="T:System.Drawing.Point" /> in client coordinates where the tooltip is to be displayed.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Show(System.String,System.Windows.Forms.ToolStripItem,System.Int32,System.Int32)">
+      <summary>
+            Shows the tooltip with the specified text, for the specified <see cref="T:System.Windows.Forms.ToolStripItem" />, at the specified position.
+            </summary>
+      <param name="text">Text to be displayed in the tooltip.</param>
+      <param name="item">
+        <see cref="T:System.Windows.Forms.ToolStripItem" /> that the tooltip is associated with.</param>
+      <param name="x">X client coordinate where the tooltip is to be displayed.</param>
+      <param name="y">Y client coordinate where the tooltip is to be displayed.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Show(System.String,System.Windows.Forms.ToolStripItem)">
+      <summary>
+            Shows the tooltip with the specified text for the specified <see cref="T:System.Windows.Forms.ToolStripItem" />.
+            </summary>
+      <param name="text">Text to be displayed in the tooltip.</param>
+      <param name="item">
+        <see cref="T:System.Windows.Forms.ToolStripItem" /> that the tooltip is associated with.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.C1SuperTooltip.Hide(System.Windows.Forms.ToolStripItem)">
+      <summary>
+            Hides the <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> if it is currently visible.
+            </summary>
+      <param name="item">
+        <see cref="T:System.Windows.Forms.ToolStripItem" /> that the tooltip is associated with.</param>
+      <remarks>
+            This method does not disable or otherwise prevent the tooltip from being displayed in the future.
+            To do that, set the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.Active" /> property to false instead.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.Active">
+      <summary>
+            Gets or sets a value indicating whether the <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> is currently active.
+            </summary>
+      <remarks>
+        <para>This property allows you to enable or disable the display of <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> 
+            text for all controls that have text specified in this particular <b>C1SuperTooltip</b>. 
+            More than one <b>C1SuperTooltip</b> can be created and assigned to a form; setting the 
+            <b>Active</b> property to false only affects the specified <b>C1SuperTooltip</b>.</para>
+        <para>You can allow users to set the value of this property in a form that provides 
+            application options to provide the ability for the user to enable or disable the display 
+            of <b>C1SuperTooltips</b> in your application.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.AutomaticDelay">
+      <summary>
+            Gets or sets the automatic delay for the <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" />.
+            </summary>
+      <remarks>
+        <para>The <b>AutomaticDelay</b> property enables you to set a single delay value which 
+            is then used to set the values of the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.AutoPopDelay" />, <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.InitialDelay" />, 
+            and <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.ReshowDelay" /> properties. Each time the <b>AutomaticDelay</b> property is set, 
+            the following values are set by default.</para>
+        <para>
+          <b>AutoPopDelay</b>: 10 times the <b>AutomaticDelay</b> property value.</para>
+        <para>
+          <b>InitialDelay</b>: Equal to the <b>AutomaticDelay</b> property value.</para>
+        <para>
+          <b>ReshowDelay</b>: 1/5 of the <b>AutomaticDelay</b> property value.</para>
+        <para>These properties can also be set independently once the AutomaticDelay property has been set. 
+            For more information, see the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.AutoPopDelay" />, <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.InitialDelay" />, and 
+            <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.ReshowDelay" /> properties. This property is typically used to provide a consistent 
+            delay pattern for your <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> windows.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.AutoPopDelay">
+      <summary>
+            Gets or sets the period of time (in milliseconds) the tooltip remains visible if the 
+            mouse pointer is stationary within a control.
+            </summary>
+      <remarks>
+        <para>This property enables you to shorten or lengthen the time that the <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> 
+            window is displayed when the mouse pointer is over a control. For example, if you display 
+            extensive help in a <b>C1SuperTooltip</b> window, you can increase the value of this property 
+            to ensure that the user has sufficient time to read the text.</para>
+        <para>If you want to have a consistent delay pattern for your <b>C1SuperTooltip</b> windows, 
+            you can set the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.AutomaticDelay" /> property. The <b>AutomaticDelay</b> property 
+            sets the <b>AutoPopDelay</b>, <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.ReshowDelay" />, and <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.InitialDelay" /> 
+            properties to initial values based on a single value. Every time the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.AutomaticDelay" /> 
+            property is set, the <b>AutoPopDelay</b> property is set to 10 times the <b>AutomaticDelay</b>
+            property value. Once the <b>AutomaticDelay</b> property is set, you can independently 
+            set the <b>AutoPopDelay</b> property, overriding the default value.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.ShowAlways">
+      <summary>
+            Gets or sets a value indicating whether a <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> window is displayed even 
+            when its parent control is not active.
+            </summary>
+      <remarks>
+        <para>This property enables you to display a <b>C1SuperTooltip</b> window even when the container 
+            of the tooltip is not active.</para>
+        <para>You can use this feature in a modeless window application to enable <b>C1SuperTooltip</b>
+            windows to be displayed regardless of which modeless window is active. This feature is also 
+            useful when creating a control using the <b>UserControl</b> that contains a number of 
+            controls that display tooltips. Since the <b>UserControl</b> is often not the active 
+            window on a form, setting this property to true enables the controls within the 
+            <b>UserControl</b> to display <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> windows at any time.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.InitialDelay">
+      <summary>
+            Gets or sets the time that passes before the tooltip appears.
+            </summary>
+      <remarks>
+        <para>This property enables you to shorten or lengthen the time that the <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> 
+            waits before displaying a tooltip window. If the value of the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.InitialDelay" /> 
+            property is set to a value that is too long in duration, the user of your application 
+            may not know that your application provides <b>C1SuperTooltip</b> help. You can use this 
+            property to ensure that the user has tooltips displayed quickly by shortening the time 
+            specified.</para>
+        <para>If you want to have a consistent delay pattern for your <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> windows,
+            you can set the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.AutomaticDelay" /> property. The <b>AutomaticDelay</b> property sets the 
+            <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.AutoPopDelay" />, <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.ReshowDelay" />, and <b>InitialDelay</b> properties 
+            to initial values based on a single time value. Every time the <b>AutomaticDelay</b> property 
+            is set, the <b>InitialDelay</b> property is set to the same value as the <b>AutomaticDelay</b>
+            property. Once the <b>AutomaticDelay</b> property is set, you can independently set the 
+            <b>InitialDelay</b> property, overriding the default value.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.ReshowDelay">
+      <summary>
+            Gets or sets the length of time that must transpire before subsequent <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> windows appear 
+            as the mouse pointer moves from one control to another.
+            </summary>
+      <remarks>
+        <para>This property enables you to shorten or lengthen the time that the <b>C1SuperTooltip</b> 
+            waits before displaying a tooltip window after a previous tooltip window is displayed. 
+            The first time a tooltip window is displayed the value of the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.InitialDelay" /> 
+            property is used to determine the delay to apply before initially showing the tooltip 
+            window. When a tooltip window is currently being displayed and the user moves the cursor 
+            to another control that displays a tooltip window, the value of the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.ReshowDelay" /> 
+            property is used before showing the tooltip for the new control. The tooltip window from 
+            the previous control must still be displayed in order for the delay specified in the 
+            <b>ReshowDelay</b> property to be used; otherwise the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.InitialDelay" /> property 
+            value is used.</para>
+        <para>If you want to have a consistent delay pattern for your <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> windows,
+            you can set the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.AutomaticDelay" /> property. The <b>AutomaticDelay</b> property sets the 
+            <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.AutoPopDelay" />, <b>ReshowDelay</b>, and <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.InitialDelay" /> properties 
+            to initial values based on a single time value. Every time the <b>AutomaticDelay</b> property 
+            is set, the <b>InitialDelay</b> property is set to the same value as the <b>AutomaticDelay</b>
+            property. Once the <b>AutomaticDelay</b> property is set, you can independently set the 
+            <b>InitialDelay</b> property, overriding the default value.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.BackColor">
+      <summary>
+            Gets or sets the background color of the tooltip window.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.ForeColor">
+      <summary>
+            Gets or sets the foreground color of the tooltip window.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.Font">
+      <summary>
+            Gets or sets the default font used to display the tooltip.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.Shadow">
+      <summary>
+            Gets or sets whether the tooltip window should display a shadow.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.Border">
+      <summary>
+            Gets or sets whether the tooltip window should display a solid border.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.BorderColor">
+      <summary>
+            Gets or sets whether the color of the border drawn around the tooltip when the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.Border" /> property is set to true.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.BackgroundImage">
+      <summary>
+            Gets or sets the background image displayed in tooltip window.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.BackgroundImageLayout">
+      <summary>
+            Gets or sets the background image layout as defined in the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.BackgroundImageLayout" /> enumeration.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.IsBalloon">
+      <summary>
+            Gets or sets whether the tooltip is shown in a balloon shape.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.RoundedCorners">
+      <summary>
+            Gets or sets whether the tooltip window has rounded corners.
+            </summary>
+      <remarks>
+            This property has no effect if <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.IsBalloon" /> is set to true.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.StripAmpersands">
+      <summary>
+            Gets or sets whether ampersands in the text should be hidden.
+            </summary>
+      <remarks>
+            Ampersands should be encoded in HTML as <b>'&amp;amp'</b>.
+            Ampersands that are not properly encoded will not be hidden.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.UseFading">
+      <summary>
+            Gets or sets whether a fade effect should be used when displaying the tooltip.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.Images">
+      <summary>
+            Gets a collection of images that may be shown in tooltips.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.BackgroundGradient">
+      <summary>
+            Gets or sets the background gradient for the tooltips.
+            </summary>
+      <remarks>
+        <para>When the <b>BackgroundGradient</b> is set to a value other than none, the gradient
+            is used instead of the image specified by the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.BackgroundImage" /> property.</para>
+        <para>If you want to use a gradient different from the built-in ones, create an image
+            and assign it to the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.BackgroundImage" /> property.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.MaximumWidth">
+      <summary>
+            Gets or sets the maximum width of the tooltips.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> displays Html text. If the tip contains a lot
+            of text without Html tags that cause line breaks (such as &lt;br&gt; or &lt;p&gt;
+            for example), then the text will not wrap and the tooltip window may be too wide.</para>
+        <para>Use this property to force text to wrap within the tooltip so it fits in the
+            given width, even without Html line break tags.</para>
+        <para>Values less than or equal to zero disable the property and cause the tip text 
+            to wrap only at the specified Html break tags.</para>
+        <example>
+            The code below forces all super tooltips to be less than or equal to 200 pixels 
+            wide.
+            <code>
+            c1SuperTooltip1.MaximumWidth = 200;
+            </code></example>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.Opacity">
+      <summary>
+            Gets or sets the opacity of the tooltips.
+            </summary>
+      <remarks>
+            This property should be set to a value between zero (totally transparent)
+            and one (totally opaque).
+            </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.C1SuperTooltip.HitTestVisible">
+      <summary>
+            Gets or sets a value that determines whether the tooltip is visible to the mouse.
+            </summary>
+      <remarks>
+        <para>This property is set to false by default, so the tooltip is invisible to 
+            the mouse. All mouse events are passed on to the control under the tooltip.</para>
+        <para>Set this property to true if you want to add clickable areas to the tooltip, 
+            such as hyperlinks. In this case, the tooltip becomes visible to the mouse handles
+            the mouse events itself instead of passing them to the control under the tooltip.</para>
+      </remarks>
+    </member>
+    <member name="E:C1.Win.C1SuperTooltip.C1SuperTooltip.Popup">
+      <summary>
+            Fires before the <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> is displayed.
+            </summary>
+      <remarks>
+            This event allows you to modify the location of the tooltip (by adjusting the <see cref="P:C1.Win.C1SuperTooltip.PopupEventArgs.Location" /> 
+            parameter), or to prevent the tooltip from being displayed (by setting the <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> parameter.
+            </remarks>
+    </member>
+    <member name="E:C1.Win.C1SuperTooltip.C1SuperTooltip.LinkClicked">
+      <summary>
+            Event that fires when the user clicks a hyperlink within a <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" />.
+            </summary>
+      <remarks>
+        <para>By default, tooltips are invisible to the mouse and therefore cannot be clicked. 
+            You must set the <see cref="P:C1.Win.C1SuperTooltip.C1SuperTooltip.HitTestVisible" /> property is to true in order to make the
+            tooltip visible to the mouse (and clickable).</para>
+        <para>Hyperlinks are created using "A" tags in the HTML source text. When hyperlinks are clicked,
+            the <b>LinkClicked</b> event fires and provides information about the link. The event handler
+            can then take appropriate action.</para>
+      </remarks>
+      <example>
+            The example below creates some hyperlinks using "A" tags. When the user clicks the link, the
+            event handler shows a message box.
+            <code>
+            // configure c1superTooltip
+            c1superTooltip.HitTestVisible = true;
+            var tipText =
+                "click &lt;a href='about'&gt;&lt;b&gt;HERE&lt;/b&gt;&lt;/a&gt; to see an about box.&lt;br&gt;" +
+                "or click &lt;a href='time'&gt;&lt;b&gt;HERE&lt;/b&gt;&lt;/a&gt; to see the current time.";
+            c1superTooltip.SetToolTip(someControl, tipText);
+            
+            // attach event handler
+            c1superTooltip.LinkClicked += c1superTooltip_LinkClicked;
+            // ...
+            
+            void c1superTooltip_LinkClicked(object sender, C1SuperLabelLinkClickedEventArgs e)
+            {
+              if (e.HRef == "about")
+              {
+                MessageBox.Show("About C1SuperLabel!");
+              }
+              else if (e.HRef == "time")
+              {
+                MessageBox.Show("The time is " + DateTime.Now.ToShortTimeString());
+              }
+            }
+            </code></example>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.PopupEventHandler">
+      <summary>
+            Represents the method that handles the <see cref="E:C1.Win.C1SuperTooltip.C1SuperTooltip.Popup" /> event.
+            </summary>
+      <param name="sender">
+        <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> object that fired the event.</param>
+      <param name="e">
+        <see cref="T:C1.Win.C1SuperTooltip.PopupEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.PopupEventArgs">
+      <summary>
+            Provides data for the <see cref="E:C1.Win.C1SuperTooltip.C1SuperTooltip.Popup" /> event.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.PopupEventArgs.#ctor(System.Windows.Forms.Form,System.Windows.Forms.Control,System.Drawing.Point,System.String)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1SuperTooltip.PopupEventArgs" /> object.
+            </summary>
+      <param name="form">
+        <see cref="P:C1.Win.C1SuperTooltip.PopupEventArgs.Form" /> that contains the tooltip.</param>
+      <param name="control">
+        <see cref="P:C1.Win.C1SuperTooltip.PopupEventArgs.Control" /> that contains the tooltip text.</param>
+      <param name="location">
+        <see cref="T:System.Drawing.Point" /> that specifies the top left corner of the tooltip.</param>
+      <param name="text">String that will be displayed in the tooltip.</param>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.PopupEventArgs.Form">
+      <summary>
+            Gets a reference to the <see cref="P:C1.Win.C1SuperTooltip.PopupEventArgs.Form" /> that contains the tooltip.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.PopupEventArgs.Control">
+      <summary>
+            Gets a reference to the <see cref="P:C1.Win.C1SuperTooltip.PopupEventArgs.Control" /> that provides the tooltip text and location.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.PopupEventArgs.ToolStripItem">
+      <summary>
+            Gets a reference to the <see cref="P:C1.Win.C1SuperTooltip.PopupEventArgs.ToolStripItem" /> that provides the tooltip text.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> can be used to display information about controls
+            or ToolStrip items (see the <see cref="M:C1.Win.C1SuperTooltip.C1SuperTooltip.SetToolTip(System.Windows.Forms.Control,System.String)" /> method).</para>
+        <para>If the tooltip is displaying information about a control, then this property 
+            returns null. If it is displaying information about a <see cref="P:C1.Win.C1SuperTooltip.PopupEventArgs.ToolStripItem" />, then 
+            this property returns a reference to that item.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.PopupEventArgs.Location">
+      <summary>
+            Gets or sets the location where the tooltip will be displayed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.PopupEventArgs.Text">
+      <summary>
+            Gets or sets the text that will be displayed in the tooltip.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.ImageCollection">
+      <summary>
+            Collection of images to be displayed in <see cref="T:C1.Win.C1SuperTooltip.C1SuperLabel" /> or 
+            <see cref="T:C1.Win.C1SuperTooltip.C1SuperTooltip" /> components.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.#ctor(System.ComponentModel.Component)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1SuperTooltip.ImageCollection" />.
+            </summary>
+      <param name="owner">Component that owns the collection.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.Add(C1.Win.C1SuperTooltip.ImageEntry)">
+      <summary>
+            Adds an <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> to the collection.
+            </summary>
+      <param name="entry">
+        <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> to add to the collection.</param>
+      <returns>The index of the new entry in the collection.</returns>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.Add(System.String,System.Drawing.Image)">
+      <summary>
+            Adds an <see cref="T:System.Drawing.Image" /> to the collection.
+            </summary>
+      <param name="key">String used to retrieve the image from the collection.</param>
+      <param name="image">
+        <see cref="T:System.Drawing.Image" /> to add to the collection.</param>
+      <returns>The index of the new entry in the collection.</returns>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.Add(System.Windows.Forms.ImageList)">
+      <summary>
+            Adds all images in an <see cref="T:System.Windows.Forms.ImageList" /> component to the collection.
+            </summary>
+      <param name="list">
+        <see cref="T:System.Windows.Forms.ImageList" /> component that contains the images to add to the collection.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.Insert(System.Int32,C1.Win.C1SuperTooltip.ImageEntry)">
+      <summary>
+            Inserts an <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> at a specified position in the collection.
+            </summary>
+      <param name="index">Position where the <paramref name="entry" /> will be inserted.</param>
+      <param name="entry">
+        <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> to add to the collection.</param>
+      <returns>The index of the new entry in the collection.</returns>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.Remove(C1.Win.C1SuperTooltip.ImageEntry)">
+      <summary>
+            Removes an <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> from the collection.
+            </summary>
+      <param name="entry">
+        <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> to remove from the collection.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.IndexOf(C1.Win.C1SuperTooltip.ImageEntry)">
+      <summary>
+            Gets the index of a given <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> in the collection.
+            </summary>
+      <param name="entry">
+        <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> to locate in th collection.</param>
+      <returns>The index of the <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> in the collection, or -1 if the 
+            collection does not contain the key.</returns>
+      <remarks>The <paramref name="entry" /> parameter is not case-sensitive.</remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.Contains(C1.Win.C1SuperTooltip.ImageEntry)">
+      <summary>
+            Determines whether the <see cref="T:C1.Win.C1SuperTooltip.ImageCollection" /> contains a given key.
+            </summary>
+      <param name="entry">
+        <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> to locate in the collection.</param>
+      <returns>True if the collection contains <paramref name="entry" />, false otherwise.</returns>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.Contains(System.String)">
+      <summary>
+            Determines whether the <see cref="T:C1.Win.C1SuperTooltip.ImageCollection" /> contains a given key.
+            </summary>
+      <param name="key">String that identifies the <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" />.</param>
+      <returns>True if the collection contains an <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> associated with the given key, false otherwise.</returns>
+      <remarks>The <paramref name="key" /> parameter is not case-sensitive.</remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.IndexOf(System.String)">
+      <summary>
+            Gets the index of the <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> with a given key.
+            </summary>
+      <param name="key">String that identifies the <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" />.</param>
+      <returns>The index of the <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> in the collection, or -1 if the 
+            collection does not contain the key.</returns>
+      <remarks>The <paramref name="key" /> parameter is not case-sensitive.</remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.OnListChanged(System.ComponentModel.ListChangedEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1SuperTooltip.ImageCollection.ListChanged" /> event. 
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.OnClearComplete">
+      <summary>
+            Performs additional custom processes after clearing the contents of the <see cref="T:C1.Win.C1SuperTooltip.ImageCollection" /> instance.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.OnInsertComplete(System.Int32,System.Object)">
+      <summary>
+            Performs additional custom processes after inserting a new element into the <see cref="T:C1.Win.C1SuperTooltip.ImageCollection" /> instance.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.OnRemoveComplete(System.Int32,System.Object)">
+      <summary>
+            Performs additional custom processes after removing an element from the <see cref="T:C1.Win.C1SuperTooltip.ImageCollection" /> instance.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageCollection.OnSetComplete(System.Int32,System.Object,System.Object)">
+      <summary>
+            Performs additional custom processes after setting a value in the <see cref="T:C1.Win.C1SuperTooltip.ImageCollection" /> instance.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1SuperTooltip.ImageCollection.ListChanged">
+      <summary>
+            Occurs when list items are added, removed, or changed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.ImageCollection.Item(System.Int32)">
+      <summary>
+            Gets or sets the <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> at the specified index in the <see cref="T:C1.Win.C1SuperTooltip.ImageCollection" />.
+            </summary>
+      <param name="index">Index of the image to get or set.</param>
+      <returns>The <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> at the specified index.</returns>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.ImageCollection.Item(System.String)">
+      <summary>
+            Gets or sets the <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> with the specified key <see cref="T:C1.Win.C1SuperTooltip.ImageCollection" />.
+            </summary>
+      <param name="key">String that identifies the <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" />.</param>
+      <returns>The <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> with the specified key.</returns>
+      <remarks>The <paramref name="key" /> parameter is not case-sensitive.</remarks>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.ImageEntry">
+      <summary>
+            Entry in a <see cref="T:C1.Win.C1SuperTooltip.ImageCollection" />.
+            </summary>
+      <remarks>
+        <para>Each entry contains an <see cref="P:C1.Win.C1SuperTooltip.ImageEntry.Image" /> and its associated <see cref="P:C1.Win.C1SuperTooltip.ImageEntry.Key" />.</para>
+        <para>Entries may be retrieved from the collection by index or by key.</para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageEntry.#ctor(System.String,System.Drawing.Image)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" />.
+            </summary>
+      <param name="key">String used as a key to retrieve the image.</param>
+      <param name="image">Image associated with the key.</param>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageEntry.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" />.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageEntry.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.ImageEntry.Key">
+      <summary>
+            Gets or sets the key used to retrieve the image from the <see cref="T:C1.Win.C1SuperTooltip.ImageCollection" />.
+            </summary>
+      <remarks>The key value is not case-sensitive.</remarks>
+    </member>
+    <member name="P:C1.Win.C1SuperTooltip.ImageEntry.Image">
+      <summary>
+        <see cref="P:C1.Win.C1SuperTooltip.ImageEntry.Image" /> in the <see cref="T:C1.Win.C1SuperTooltip.ImageCollection" />.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1SuperTooltip.ImageEntryTypeConverter">
+      <summary>
+        <see cref="T:System.ComponentModel.TypeConverter" /> used to persist <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> objects.
+            </summary>
+      <remarks>
+        <para>This converter causes Visual Studio to persist the type in code-behind, which is version-neutral.</para>
+        <para>Without this, the <see cref="T:C1.Win.C1SuperTooltip.ImageEntry" /> objects would be persisted as binary resources,
+            along with their specific version, so upgrading the component version would break projects 
+            created with previous versions.</para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageEntryTypeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+      <summary>
+            Returns a value that indicates whether the object can be converted to a specified data type.
+            </summary>
+      <param name="context">The context.</param>
+      <param name="destType">The data type.</param>
+      <returns>True if the conversion is supported, false otherwise.</returns>
+    </member>
+    <member name="M:C1.Win.C1SuperTooltip.ImageEntryTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+      <summary>
+            Converts the object into the specified data type.
+            </summary>
+      <param name="context">The context.</param>
+      <param name="culture">The culture.</param>
+      <param name="value">The object to convert.</param>
+      <param name="destType">The type to convert to.</param>
+      <returns>The converted object.</returns>
+    </member>
+    <member name="T:C1.Framework.ResourceLoader">
+      <summary>
+            Class with static methods used for enumerating and retrieving application
+            resources.
+            </summary>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.GetImages">
+      <summary>
+            Returns all images from the entry assembly. 
+            </summary>
+      <returns>A collection of name/image pairs.</returns>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.GetImages(System.Reflection.Assembly)">
+      <summary>
+            Returns all images from the specified assembly. 
+            </summary>
+      <param name="a">An <see cref="T:System.Reflection.Assembly" /> to load images from.</param>
+      <returns>A collection of name/image pairs.</returns>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.GetImage(System.String)">
+      <summary>
+            Loads an image from the entry assembly. 
+            </summary>
+      <param name="name">The case-insensitive name of the requested image.</param>
+      <returns>The <see cref="T:System.Drawing.Image" /> if it is found; null otherwise.</returns>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.GetImage(System.Reflection.Assembly,System.String)">
+      <summary>
+            Loads an image from the specified assembly. 
+            </summary>
+      <param name="a">An <see cref="T:System.Reflection.Assembly" /> to load image from.</param>
+      <param name="name">The case-insensitive name of the requested image.</param>
+      <returns>The <see cref="T:System.Drawing.Image" /> if it is found; null otherwise.</returns>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.GetStream(System.String)">
+      <summary>
+            Loads the specified manifest resource from the entry assembly. 
+            </summary>
+      <param name="name">The case-insensitive name of the manifest resource being requested.</param>
+      <returns>A <see cref="T:System.IO.Stream" /> representing this manifest resource.</returns>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.GetStream(System.Reflection.Assembly,System.String)">
+      <summary>
+            Loads the specified manifest resource from the specified assembly. 
+            </summary>
+      <param name="a">An <see cref="T:System.Reflection.Assembly" /> to load resource from.</param>
+      <param name="name">The case-insensitive name of the manifest resource being requested.</param>
+      <returns>A <see cref="T:System.IO.Stream" /> representing this manifest resource.</returns>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.DecodeImage(System.String)">
+      <summary>
+            Decodes an image from a base-64-encoded string.
+            </summary>
+      <param name="data">String that contains the encoded image data.</param>
+      <returns>The <see cref="T:System.Drawing.Image" /> encoded in the string.</returns>
+    </member>
+    <member name="T:C1.Framework.ScrollableControl">
+      <summary>
+            Defines an abstract base class for controls that support auto-scrolling behavior. 
+            </summary>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.#ctor">
+      <summary>
+            Initializes the <see cref="T:C1.Framework.ScrollableControl" /> properties.
+            </summary>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.OnScroll(System.Windows.Forms.ScrollBars)">
+      <summary>
+            Override this method to get notifications when the control scrolls.
+            </summary>
+      <param name="sb">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.BuildScrollableRectangle(System.Int32,System.Int32)">
+      <summary>
+            This method is used to set the scroll rectangle.
+            Override it to customize the scrolling behavior.
+            </summary>
+      <param name="dx">
+      </param>
+      <param name="dy">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.HandleScrollMessage(System.Windows.Forms.Message)">
+      <summary>
+            Handles scroll messages.
+            </summary>
+      <param name="m">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.SetClientSizeCore(System.Int32,System.Int32)">
+      <summary>
+            This member overrides <see cref="M:System.Windows.Forms.Control.SetClientSizeCore(System.Int32,System.Int32)" />.
+            Override this method to account for scrollbars size.
+            </summary>
+      <param name="x">
+      </param>
+      <param name="y">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)">
+      <summary>
+            This member overrides <see cref="M:System.Windows.Forms.Control.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)" />.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.OnPaint(System.Windows.Forms.PaintEventArgs)">
+      <summary>
+            This member overrides <see cref="M:System.Windows.Forms.Control.OnPaint(System.Windows.Forms.PaintEventArgs)" />.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.OnSizeChanged(System.EventArgs)">
+      <summary>
+            This member overrides <see cref="M:System.Windows.Forms.Control.OnSizeChanged(System.EventArgs)" />.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            This member overrides <see cref="M:System.Windows.Forms.Control.OnMouseWheel(System.Windows.Forms.MouseEventArgs)" />.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.WndProc(System.Windows.Forms.Message@)">
+      <summary>
+            This member overrides <see cref="M:System.Windows.Forms.Control.WndProc(System.Windows.Forms.Message@)" />.
+            </summary>
+      <param name="m">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.GetScrollSize(System.Int32)">
+      <summary>
+            Retrieves the specified scroll bar range.
+            </summary>
+      <param name="nBar">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.GetScrollPos(System.Int32)">
+      <summary>
+            Gets the scroll position of the specified scroll bar.
+            </summary>
+      <param name="nBar">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.GetTrackPos(System.Int32)">
+      <summary>
+            Gets the immediate position of the specified scroll box that the user is dragging.
+            </summary>
+      <param name="nBar">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.SetScrollPos(System.Int32,System.Int32)">
+      <summary>
+            Sets the position of the specified scroll bar.
+            </summary>
+      <param name="nBar">
+      </param>
+      <param name="pos">Specifies the new position of the scroll box. 
+            The position must be within the scrolling range. </param>
+      <returns>The previous position of the scroll box indicates success. 
+            Zero indicates failure</returns>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.Text">
+      <summary>
+            Gets or sets the text associated with the control.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.ScrollBars">
+      <summary>
+            Gets or sets which scroll bars should appear on the control.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.ScrollPosition">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Point" /> value determining the current scroll position.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.ScrollSize">
+      <summary>
+            Gets or sets the size of the document.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.ScrollTrack">
+      <summary>
+            Gets or sets whether the control should scroll as the user drags the scrollbar thumb.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.BorderStyle">
+      <summary>
+            Gets or sets the <see cref="P:C1.Framework.ScrollableControl.BorderStyle" /> value determining 
+            the type of border around the control.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.Cursor">
+      <summary>
+            Gets or sets the <see cref="P:C1.Framework.ScrollableControl.Cursor" /> that appears when 
+            the mouse moves over the control.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.ScrollableRectangle">
+      <summary>
+            This property is used to set the scroll page size.
+            Override it to customize the scrolling behavior.
+            </summary>
+    </member>
+  </members>
+</doc>

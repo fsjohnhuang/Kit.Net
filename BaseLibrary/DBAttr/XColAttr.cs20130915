@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace lpp.DBAttr
+{
+    [AttributeUsage(AttributeTargets.Property,AllowMultiple = true)]
+    public class XColAttr : Attribute
+    {
+        private bool m_IsPrimary = false;
+        private JoinType m_JoinType = JoinType.INNER_JOIN;
+
+        public bool IsPrimary { get { return m_IsPrimary; } set { m_IsPrimary = value; } }
+        // 主表字典
+        public string MasterCol { get; set; }
+        // 主表别名
+        public string MasterTblAlias { get; set; }
+        // 关联表字段
+        public string RelatedCol { get; set; }
+        // 关联表别名
+        public string RelatedTblAlias { get; set; }
+        public JoinType JoinType { get { return m_JoinType; } set { m_JoinType = value; } }
+
+        public XColAttr(string masterTblAlias, string masterfCol)
+        {
+            this.MasterTblAlias = masterTblAlias;
+            this.MasterCol = masterfCol;
+        }
+
+        public XColAttr(string masterTblAlias, string masterfCol, string relatedTblAlias, string relatedCol)
+            : this(masterTblAlias, masterfCol)
+        {
+            this.RelatedTblAlias = relatedTblAlias;
+            this.RelatedCol = relatedCol;
+        }
+    }
+
+    public enum JoinType
+    {
+        NONE,
+        INNER_JOIN,
+        LEFT_OUTER_JOIN,
+        RIGHT_OUTER_JOIN,
+        CROSS_JOIN
+    }
+}

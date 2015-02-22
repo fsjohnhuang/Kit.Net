@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace lpp.DBAttr
+{
+    [AttributeUsage(AttributeTargets.Property)]
+    public class ColAttr : Attribute
+    {
+        private bool m_IsPrimary = false;
+        private bool m_IsAutoGenerate = true;
+
+        public string Name { get; set; }
+        public bool IsPrimary { get { return m_IsPrimary; } set { m_IsPrimary = value; } }
+        public bool IsAutoGenerate { get { return m_IsAutoGenerate; } set { m_IsAutoGenerate = value; } }
+        
+
+        public ColAttr(string name)
+        {
+            this.Name = name;
+        }
+    }
+}

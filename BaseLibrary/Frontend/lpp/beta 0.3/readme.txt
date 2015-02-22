@@ -1,0 +1,1 @@
+﻿lpp库从beta0.3开始使用coffescript编写

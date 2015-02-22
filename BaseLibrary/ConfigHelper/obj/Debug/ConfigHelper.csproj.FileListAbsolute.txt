@@ -1,0 +1,9 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConfigHelper\bin\Debug\ConfigHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConfigHelper\bin\Debug\ConfigHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConfigHelper\bin\Debug\CollectionHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConfigHelper\bin\Debug\StringHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConfigHelper\bin\Debug\CollectionHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConfigHelper\bin\Debug\StringHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConfigHelper\obj\Debug\ConfigHelper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConfigHelper\obj\Debug\ConfigHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConfigHelper\obj\Debug\ConfigHelper.pdb

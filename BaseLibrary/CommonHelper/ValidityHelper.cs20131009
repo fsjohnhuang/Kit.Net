@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
+
+namespace lpp.CommonHelper
+{
+    public static class ValidityHelper
+    {
+        /// <summary>
+        /// 正则表达式验证“移动”手机号码
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsMobileNum(string num)
+        {
+            if (string.IsNullOrEmpty(num)) return false;
+
+            string pattern = @"^(13[0-9]|15[0-9]|18[0-9])\d{8}$";
+            return Regex.IsMatch(num, pattern);
+        }
+
+        /// <summary>
+        /// 正则表达式验证“联通”手机号码
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsUnicomNum(string num)
+        {
+            if (string.IsNullOrEmpty(num)) return false;
+
+            string pattern = @"^(132\d{8}$";
+            return Regex.IsMatch(num, pattern);
+        }
+
+        /// <summary>
+        /// 正则表达式验证固话号码
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsPhoneNum(string num)
+        {
+            if (string.IsNullOrEmpty(num)) return false;
+
+            string pattern = @"^[1-9][0-9]{7}$";
+            return Regex.IsMatch(num, pattern);
+        }
+
+        /// <summary>
+        /// 正则表达式验证身份证号码
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static bool IsIDCard(string id)
+        {
+            Regex reg = new Regex(@"^(^\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$");
+            return reg.IsMatch(id);
+        }
+
+        /// <summary>
+        /// 检查是否全是中文字符
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsChinese(string str)
+        {
+            string pattern = @"^[\u4e00-\u9fa5]$";
+            Regex reg = new Regex(pattern);
+            return reg.IsMatch(str);
+        }
+
+        /// <summary>
+        /// 检查是否为IPv4
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsIPv4(string str)
+        {
+            string pattern = @"^$";
+            Regex reg = new Regex(pattern);
+            return reg.IsMatch(str);
+        }
+    }
+}

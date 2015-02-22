@@ -1,0 +1,15 @@
+﻿<div>
+    Search:<input type="text" ng-model="query" />
+</div>
+<div>
+    <select ng-model="orderOpt">
+        <option value="name">ByName</option>
+        <option value="age">ByAge</option>
+    </select>
+    <div>{{orderOpt}}</div>
+</div>
+<ul>
+    <li ng-repeat="phone in phones | filter:query | orderBy:orderOpt">
+        <a href="#/phones/{{phone.id}}">{{phone.name}}-{{phone.snippet}}</a>
+    </li>
+</ul>

@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace lpp.DBHelper.MSSQL
+{
+    public static class MSFns
+    {
+        public const string Trim = "LTRIM(RTRIM({0}))";
+        public const string Max = "MAX({0})";
+        public const string Min = "MIN({0})";
+    }
+}

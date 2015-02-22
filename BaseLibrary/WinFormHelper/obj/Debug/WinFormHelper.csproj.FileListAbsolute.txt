@@ -1,0 +1,9 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormHelper\bin\Debug\WinFormHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormHelper\bin\Debug\WinFormHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormHelper\obj\Debug\WinFormHelper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormHelper\obj\Debug\WinFormHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormHelper\obj\Debug\WinFormHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormHelper\obj\Debug\lpp.WinFormHelper.UC.lppDateTimePicker.resources
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormHelper\obj\Debug\WinFormHelper.csproj.GenerateResource.Cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormHelper\bin\Debug\StringHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\WinFormHelper\bin\Debug\StringHelper.pdb

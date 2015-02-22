@@ -1,0 +1,8 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelperUnitTest\bin\Debug\TplHelperUnitTest.exe.config
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelperUnitTest\bin\Debug\TplHelperUnitTest.exe
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelperUnitTest\bin\Debug\TplHelperUnitTest.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelperUnitTest\bin\Debug\TplHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelperUnitTest\bin\Debug\TplHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelperUnitTest\obj\Debug\TplHelperUnitTest.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelperUnitTest\obj\Debug\TplHelperUnitTest.exe
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelperUnitTest\obj\Debug\TplHelperUnitTest.pdb

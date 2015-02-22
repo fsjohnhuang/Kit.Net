@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="lpp/lpp.js"></script>
+    <script src="lpp/lpp.util.js"></script>
+    <script src="lpp/lpp.fn.js"></script>
+    <style type="text/css">
+        #obj
+        {
+            border: solid 1px red;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="obj"></div>
+    <input type="button" value="hide" id="hide">
+    <input type="button" value="show" id="show">
+</body>
+<script type="text/javascript">
+    lpp('#hide').on('click', function (e) {
+        l = lpp('#obj').hide({
+            during: 1000,
+            display: 'invisible',
+            afterHide: function (lppEl) {
+                alert("hide");
+            }
+        });
+    });
+    lpp('#show').on('click', function (e) {
+        l = lpp('#obj').show({
+            during: 2000,
+            afterShow: function (lppEl) {
+                alert("show");
+            }
+        });
+    });
+    
+</script>
+</html>

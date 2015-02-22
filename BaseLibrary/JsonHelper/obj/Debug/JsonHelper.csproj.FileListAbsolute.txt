@@ -1,0 +1,12 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\JsonHelper\bin\Debug\JsonHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\JsonHelper\bin\Debug\JsonHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\JsonHelper\bin\Debug\Newtonsoft.Json.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\JsonHelper\obj\Debug\JsonHelper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\JsonHelper\obj\Debug\JsonHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\JsonHelper\obj\Debug\JsonHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\JsonHelper\obj\Debug\JsonHelper.csprojResolveAssemblyReference.cache
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\JsonHelper\obj\Debug\JsonHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\JsonHelper\obj\Debug\JsonHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\JsonHelper\bin\Debug\JsonHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\JsonHelper\bin\Debug\JsonHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\JsonHelper\bin\Debug\Newtonsoft.Json.dll

@@ -1,0 +1,5 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ValidityHelper\bin\Debug\ValidityHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ValidityHelper\bin\Debug\ValidityHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ValidityHelper\obj\Debug\ValidityHelper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ValidityHelper\obj\Debug\ValidityHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ValidityHelper\obj\Debug\ValidityHelper.pdb

@@ -1,0 +1,28 @@
+﻿2013/9/18 15:38:39  ----  System.Configuration.ConfigurationErrorsException: 配置系统未能初始化 ---> System.Configuration.ConfigurationErrorsException: 无法识别的配置节 add。 (F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\IPCRemoting\bin\Debug\IPCRemoting.vshost.exe.config line 3)
+   在 System.Configuration.ConfigurationSchemaErrors.ThrowIfErrors(Boolean ignoreLocal)
+   在 System.Configuration.BaseConfigurationRecord.ThrowIfInitErrors()
+   在 System.Configuration.ClientConfigurationSystem.EnsureInit(String configKey)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Configuration.ClientConfigurationSystem.EnsureInit(String configKey)
+   在 System.Configuration.ClientConfigurationSystem.PrepareClientConfigSystem(String sectionName)
+   在 System.Configuration.ClientConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String sectionName)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 System.Configuration.ConfigurationManager.get_AppSettings()
+   在 lpp.DBService.DBMgr..ctor() 位置 f:\John's Dir\Principal Project\更新发布工具\Deployer\beta0.3\DBService\DBMgr.cs:行号 27
+2013/9/18 15:38:39  ----  System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 lpp.DBService.DBMgr.GetServices() 位置 f:\John's Dir\Principal Project\更新发布工具\Deployer\beta0.3\DBService\DBMgr.cs:行号 46
+2013/9/18 15:39:38  ----  System.Configuration.ConfigurationErrorsException: 配置系统未能初始化 ---> System.Configuration.ConfigurationErrorsException: 无法识别的配置节 add。 (F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\IPCRemoting\bin\Debug\IPCRemoting.vshost.exe.config line 3)
+   在 System.Configuration.ConfigurationSchemaErrors.ThrowIfErrors(Boolean ignoreLocal)
+   在 System.Configuration.BaseConfigurationRecord.ThrowIfInitErrors()
+   在 System.Configuration.ClientConfigurationSystem.EnsureInit(String configKey)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Configuration.ClientConfigurationSystem.EnsureInit(String configKey)
+   在 System.Configuration.ClientConfigurationSystem.PrepareClientConfigSystem(String sectionName)
+   在 System.Configuration.ClientConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String sectionName)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 System.Configuration.ConfigurationManager.get_AppSettings()
+   在 lpp.DBService.DBMgr..ctor() 位置 f:\John's Dir\Principal Project\更新发布工具\Deployer\beta0.3\DBService\DBMgr.cs:行号 27
+2013/9/18 15:39:38  ----  System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 lpp.DBService.DBMgr.GetServices() 位置 f:\John's Dir\Principal Project\更新发布工具\Deployer\beta0.3\DBService\DBMgr.cs:行号 46
+2013/9/18 15:40:19  ----  ./DB/srvDB
+2013/9/18 15:41:22  ----  ./DB/srvDB

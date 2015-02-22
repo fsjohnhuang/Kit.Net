@@ -1,0 +1,14 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CollectionHelper\bin\Debug\CollectionHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CollectionHelper\bin\Debug\CollectionHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CollectionHelper\bin\Debug\StringHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CollectionHelper\bin\Debug\StringHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CollectionHelper\obj\Debug\CollectionHelper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CollectionHelper\obj\Debug\CollectionHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CollectionHelper\obj\Debug\CollectionHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\CollectionHelper\bin\Debug\CollectionHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\CollectionHelper\bin\Debug\CollectionHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\CollectionHelper\bin\Debug\StringHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\CollectionHelper\bin\Debug\StringHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\CollectionHelper\obj\Debug\CollectionHelper.csprojResolveAssemblyReference.cache
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\CollectionHelper\obj\Debug\CollectionHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\CollectionHelper\obj\Debug\CollectionHelper.pdb

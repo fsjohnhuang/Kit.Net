@@ -1,0 +1,22 @@
+﻿// 1和4都在两者的rules中
+// ie无法获取@page内部的样式
+/*
+    ie                                  chrome
+
+    styleSheet                          sheet/styleSheet(preference)
+    styleSheet.rules                    sheet.cssRules/sheet.rules
+    styleSheet.media                    sheet.media.mediaText
+    styleSheet.owningElement            sheet.ownerNode
+    styleSheet.cssText
+    styleSheet.imports
+    styleSheet.pages
+                                        sheet.cssRules[x].type 1:CSSStyleRule 2:CSSCharsetRule 3:CSSImportRule 4:CSSMediaRule 6:CSSPageRule
+                                        sheet.cssRules[x].parentRule
+                                        sheet.cssRules[x].parentStyleSheet
+    styleSheet.rules[x].style.cssText   sheet.cssRules[x].cssText
+    styleSheet.addRule                  sheet.insertRule/sheet.addRule
+    styleSheet.removeRule                  sheet.deleteRule/sheet.removeRule
+    styleSheet.addImport
+    styleSheet.removeImport
+    styleSheet.addPageRule
+*/

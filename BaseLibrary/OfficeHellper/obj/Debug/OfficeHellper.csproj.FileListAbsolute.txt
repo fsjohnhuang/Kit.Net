@@ -1,0 +1,6 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\OfficeHellper\bin\Debug\OfficeHellper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\OfficeHellper\bin\Debug\OfficeHellper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\OfficeHellper\bin\Debug\Aspose.Cells.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\OfficeHellper\obj\Debug\OfficeHellper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\OfficeHellper\obj\Debug\OfficeHellper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\OfficeHellper\obj\Debug\OfficeHellper.pdb

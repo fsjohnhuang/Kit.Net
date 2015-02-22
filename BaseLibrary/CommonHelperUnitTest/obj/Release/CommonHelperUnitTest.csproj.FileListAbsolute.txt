@@ -1,0 +1,9 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Release\CommonHelperUnitTest.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Release\CommonHelperUnitTest.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Release\CommonHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Release\Newtonsoft.Json.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Release\ICSharpCode.SharpZipLib.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\bin\Release\CommonHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\obj\Release\CommonHelperUnitTest.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\obj\Release\CommonHelperUnitTest.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\CommonHelperUnitTest\obj\Release\CommonHelperUnitTest.pdb

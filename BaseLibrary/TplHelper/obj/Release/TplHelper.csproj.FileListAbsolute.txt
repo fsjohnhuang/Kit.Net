@@ -1,0 +1,5 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelper\bin\Release\TplHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelper\bin\Release\TplHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelper\obj\Release\TplHelper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelper\obj\Release\TplHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\TplHelper\obj\Release\TplHelper.pdb

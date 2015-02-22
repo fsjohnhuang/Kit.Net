@@ -1,0 +1,14 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConverterHelper\bin\Debug\ConverterHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConverterHelper\bin\Debug\ConverterHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConverterHelper\bin\Debug\StringHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConverterHelper\bin\Debug\StringHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConverterHelper\obj\Debug\ConverterHelper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConverterHelper\obj\Debug\ConverterHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\ConverterHelper\obj\Debug\ConverterHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\ConverterHelper\bin\Debug\ConverterHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\ConverterHelper\bin\Debug\ConverterHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\ConverterHelper\bin\Debug\StringHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\ConverterHelper\bin\Debug\StringHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\ConverterHelper\obj\Debug\ConverterHelper.csprojResolveAssemblyReference.cache
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\ConverterHelper\obj\Debug\ConverterHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\ConverterHelper\obj\Debug\ConverterHelper.pdb

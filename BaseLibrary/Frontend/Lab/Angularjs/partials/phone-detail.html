@@ -1,0 +1,9 @@
+﻿<ul>
+	<li ng-repeat="img in phone.images">
+        <img ng-src="{{img}}" ng-click="setImg(img)"/>
+	</li>
+
+    <img ng-src="{{bigImg}}" style="width: 200px;height: 200px"/>
+    <span>{{phone.GPS | checkmark}}</span>
+    <span>{{phone.HIFI | checkmark}}</span>
+</ul>

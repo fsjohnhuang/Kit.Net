@@ -1,0 +1,6 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Console\bin\Debug\Console.exe
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Console\bin\Debug\Console.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Console\obj\Debug\Console.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Console\obj\Debug\Console.exe
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Console\obj\Debug\Console.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\Console\bin\Debug\System.Data.SQLite.DLL

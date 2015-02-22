@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Underscore test platform
+    </title>
+    <script src="underscore-dev.js"></script>
+    <script type="text/template" id="s2">
+        <%_.each(datas, function(item){%>
+         <li><a href="#"> <img src="<%=item.icon%>" alt="<%=item.name%>" /><span><%=item.name%></span></a></li>
+        <%});%>
+    </script>
+</head>
+<body>
+    <div id="content"></div>
+    <script type="text/javascript">
+        datas = [{
+            name: 'John'
+        }, {
+            name: 'Mary'
+        }]
+        document.getElementById('content').innerHTML = _.template(document.getElementById('s2').innerHTML, datas);
+    </script>
+</body>
+</html>

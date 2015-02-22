@@ -1,0 +1,32 @@
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\DBHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\DBHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\CollectionHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\ConverterHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\DBAttr.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\LogHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\System.Data.SQLite.DLL
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\StringHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\CollectionHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\ConverterHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\DBAttr.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\LogHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\StringHelper.pdb
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\obj\Debug\DBHelper.csprojResolveAssemblyReference.cache
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\obj\Debug\DBHelper.dll
+F:\John's Dir\Lab\实例库\开发中\基础库\BaseLibrary\DBHelper\obj\Debug\DBHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\DBHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\DBHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\CollectionHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\ConverterHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\DBAttr.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\LogHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\System.Data.SQLite.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\StringHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\CollectionHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\ConverterHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\DBAttr.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\LogHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\bin\Debug\StringHelper.pdb
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\obj\Debug\DBHelper.csprojResolveAssemblyReference.cache
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\obj\Debug\DBHelper.dll
+F:\skyDrive\tmp\Lib\开发中\基础库\BaseLibrary\DBHelper\obj\Debug\DBHelper.pdb

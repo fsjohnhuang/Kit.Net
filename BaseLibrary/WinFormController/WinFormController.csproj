@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE84CF62-8092-4B7C-ADFA-833893CD42FE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lpp.WinFormController</RootNamespace>
+    <AssemblyName>WinFormController</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.Win.C1FlexGrid.2, Version=2.6.20122.701, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\C1.Win.C1FlexGrid.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1SuperTooltip.2, Version=2.0.20122.107, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\C1.Win.C1SuperTooltip.2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cbx.cs" />
+    <Compile Include="FileBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileBrowser.Designer.cs">
+      <DependentUpon>FileBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileEditor.Designer.cs">
+      <DependentUpon>FileEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsgBox.cs" />
+    <Compile Include="PagingBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagingBar.Designer.cs">
+      <DependentUpon>PagingBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RenameDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RenameDialog.Designer.cs">
+      <DependentUpon>RenameDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectLists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SelectLists.Designer.cs">
+      <DependentUpon>SelectLists.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FileBrowser.resx">
+      <DependentUpon>FileBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileEditor.resx">
+      <DependentUpon>FileEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagingBar.resx">
+      <DependentUpon>PagingBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="RenameDialog.resx">
+      <DependentUpon>RenameDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectLists.resx">
+      <DependentUpon>SelectLists.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="imgs\arrow_left.png" />
+    <EmbeddedResource Include="imgs\arrow_refresh.png" />
+    <EmbeddedResource Include="imgs\arrow_right.png" />
+    <EmbeddedResource Include="imgs\arrow_rotate_anticlockwise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CollectionHelper\CollectionHelper.csproj">
+      <Project>{cd6bafa5-d874-4542-8b6b-f67b00f9619d}</Project>
+      <Name>CollectionHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnumHelper\EnumHelper.csproj">
+      <Project>{a80d3444-177f-4945-b50c-72515472b30f}</Project>
+      <Name>EnumHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogHelper\LogHelper.csproj">
+      <Project>{c436ecf0-8db8-4452-9a9d-042d03656d0d}</Project>
+      <Name>LogHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StringHelper\StringHelper.csproj">
+      <Project>{4f407461-8c47-43cd-87f2-d80078274c67}</Project>
+      <Name>StringHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="fileBrowserImgs\page_white_cplusplus.png" />
+    <EmbeddedResource Include="fileBrowserImgs\page_white_csharp.png" />
+    <EmbeddedResource Include="fileBrowserImgs\page_white_database.png" />
+    <EmbeddedResource Include="fileBrowserImgs\page_white_php.png" />
+    <EmbeddedResource Include="fileBrowserImgs\page_white_visualstudio.png" />
+    <EmbeddedResource Include="fileBrowserImgs\server_database.png" />
+    <EmbeddedResource Include="fileBrowserImgs\tux.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="fileBrowserImgs\1-11112R01531-50.png" />
+    <EmbeddedResource Include="fileBrowserImgs\application_link.png" />
+    <EmbeddedResource Include="fileBrowserImgs\application_view_tile.png" />
+    <EmbeddedResource Include="fileBrowserImgs\application_xp_terminal.png" />
+    <EmbeddedResource Include="fileBrowserImgs\css.png" />
+    <EmbeddedResource Include="fileBrowserImgs\cup.png" />
+    <EmbeddedResource Include="fileBrowserImgs\docs.gif" />
+    <EmbeddedResource Include="fileBrowserImgs\drive.png" />
+    <EmbeddedResource Include="fileBrowserImgs\film.png" />
+    <EmbeddedResource Include="fileBrowserImgs\folder-open.gif" />
+    <EmbeddedResource Include="fileBrowserImgs\folder.gif" />
+    <EmbeddedResource Include="fileBrowserImgs\html.png" />
+    <EmbeddedResource Include="fileBrowserImgs\page_excel.png" />
+    <EmbeddedResource Include="fileBrowserImgs\page_white_c.png" />
+    <EmbeddedResource Include="fileBrowserImgs\page_white_flash.png" />
+    <EmbeddedResource Include="fileBrowserImgs\page_white_ruby.png" />
+    <EmbeddedResource Include="fileBrowserImgs\page_white_word.png" />
+    <EmbeddedResource Include="fileBrowserImgs\photos.png" />
+    <EmbeddedResource Include="fileBrowserImgs\picture.png" />
+    <EmbeddedResource Include="fileBrowserImgs\play.png" />
+    <EmbeddedResource Include="fileBrowserImgs\powerpoint.png" />
+    <EmbeddedResource Include="fileBrowserImgs\report.png" />
+    <EmbeddedResource Include="fileBrowserImgs\script_code.png" />
+    <EmbeddedResource Include="fileBrowserImgs\xhtml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="fileBrowserImgs\page_white_acrobat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="fileBrowserImgs\images.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

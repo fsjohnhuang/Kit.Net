@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="cssreset-min.css" rel="stylesheet" />
+    <script src="underscore-dev.js"></script>
+    <script src="lpp/lpp.js"></script>
+    <script src="lpp/lpp.Str.js"></script>
+    <script src="lpp/ui/Card.js"></script>
+    <script src="lpp/json2.js"></script>
+    <script type="text/template">
+
+    </script>
+    <style type="text/css">
+        #sort{
+            width: 150px;
+            padding: 0 10px 10px;
+            border: solid 1px gray;
+            position: absolute;
+            top: 100px;
+            left: 120px;
+        }
+        #sort li{
+            margin: 10px 0 0;
+            width: 120px;
+        }
+        #sort img{
+            width: 25px;
+            height: 25px;
+        }
+        #sort a{
+            position: relative;
+            display: block;
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+        }
+        #sort a span{
+            position: relative;
+            top: -10px;
+            margin-left: 5px;
+        }
+        #sort a:hover img{
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+       
+        #sort a:hover{
+             color: #888;
+         }
+         #sort .theme{
+             position: absolute;
+             left: 175px;
+             *left: 165px;
+             width: 300px;
+             padding: 0 10px 10px;
+             height: 100px;
+             border: solid 1px gray;
+         }
+         #sort .theme li{
+             float: left;
+             width: 140px;
+             margin-top: 10px;
+         }
+          #sort .theme a{
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+        }
+          #sort .theme a:hover{
+             color: #888;
+         }
+    </style>
+    <script src="lpp/lpp.Ajax.js"></script>
+    <script type="text/template" id="sortTpl">
+        <%_.each(datas, function(item, index){%>
+            <li><a href="#" themeId="<%=item.id%>" id="sort<%=index%>"> <img src="<%=item.icon%>" alt="<%=item.name%>" /><span><%=item.name%></span></a></li>
+        <%});%>
+    </script>
+    <script type="text/template" id="themeTpl">
+        <%_.each(themeData, function(item, index){%>
+            <li><a href="#"><%=item.name%></a></li>
+        <%});%>
+    </script>
+</head>
+<body>
+    <ul id="sort">
+       <li>
+            <img src="wp8icon/IE9.png" /><span>应用系统类</span>
+                <ul class="theme" style="top:0;*top: -5px;">
+                    <li><a href="#">测试1</a></li>
+                    <li><a href="#">测试2</a></li>
+                    <li><a href="#">测试3</a></li>
+                </ul>
+       </li>
+        <li>
+            <a href="#"><img src="wp8icon/internetnews.png" /><span>操作系统类</span>
+                <ul class="theme" style="top:45px;*top: -5px;">
+                    <li><a href="#">测试2</a></li>
+                    <li><a href="#">测试3</a></li>
+                    <li><a href="#">测试4</a></li>
+                </ul>
+            </a></li>
+        <li>
+            <a href="#"><img src="wp8icon/movies.png" /><span>数据库类</span>
+                <ul class="theme" style="top:80px;*top: -5px;">
+                    <li><a href="#">测试2</a></li>
+                    <li><a href="#">测试3</a></li>
+                    <li><a href="#">测试4</a></li>
+                </ul>
+            </a></li>
+        <li>
+            <a href="#"><img src="wp8icon/notice.png" /><span>安全攻防类</span>
+                <ul class="theme" style="top:120px;*top: -5px;">
+                    <li><a href="#">测试2</a></li>
+                    <li><a href="#">测试3</a></li>
+                    <li><a href="#">测试4</a></li>
+                </ul>
+            </a></li>
+    </ul>
+    <!--<ul class="theme">-->
+        <!--<li><a href="#">测试1</a></li>
+        <li><a href="#">测试2</a></li>
+        <li><a href="#">测试3</a></li>
+        <li><a href="#">橙色4</a></li>
+        <li class="clearboth"></li>-->
+    <!--</ul>-->
+
+        <script type="text/javascript">
+            //var datas = [{
+            //    icon: 'wp8icon/IE9.png', name: '应用系统类', id: 1
+            //}, {
+            //    icon: 'wp8icon/internetnews.png', name: '操作系统类', id: 2
+            //}, {
+            //    icon: 'wp8icon/movies.png', name: '数据库类', id: 3
+            //}, {
+            //    icon: 'wp8icon/notice.png', name: '安全攻防类', id: 4
+            //}];
+            //lpp('#sort').html(_.template(lpp('#sortTpl').html(), datas))
+
+            //function GetTheme(event) {
+            //    var target = event.currentTarget;
+            //    var parentNode = target.parentNode.parentNode;
+            //    var targetOffestTop = (target.offsetTop ? target.offsetTop : Number(target.id.replace('sort', '')) * 40);
+            //    var top = targetOffestTop + parentNode.offsetTop + (lpp.isIE() ? 15 : -10);
+            //    var left = target.offsetLeft + parentNode.offsetLeft + parentNode.offsetWidth + (lpp.isIE() ? 2 : -8);
+
+            //    // 生成并缓存主题面板
+            //    var themeId = lpp(target).attr('themeId');
+            //    var themePanel = null
+            //    if (typeof themePanels === 'undefined'){ 
+            //        themePanels = {};
+            //    }
+            //    if (themePanels[themeId]) {
+            //        themePanel = themePanels[themeId];
+            //    }
+            //    else {
+            //        lpp.Ajax.syncReq('dummyData1.js', function (response) {
+            //            themeData = JSON.parse(response.responseText);
+            //            themePanel = lpp('<ul class="theme" style="display:none"></ul>').html(_.template(lpp('#themeTpl').html(), themeData))
+            //        });
+            //        themePanel.appendAt(document.body);
+            //        themePanel.css({
+            //            left: left + 'px',
+            //            top: top + 'px'
+            //        });
+            //        themePanels[themeId] = themePanel;
+            //    }
+
+            //    for (var _themePanel in themePanels) {
+            //        themePanels[_themePanel].hide({
+            //            during: 100
+            //        });
+            //    }
+            //    setTimeout(function () {
+            //        themePanel.show({
+            //            during: 200
+            //        });
+            //    }, 200);
+            //}
+            //lpp('#sort>li>a').on('click', GetTheme);
+
+
+            lpp('#sort>li>a').on('mouseover', function (event) {
+                debugger;
+                lpp(event.currentTarget).down('.theme').show({
+                    during: 500
+                })
+            });
+
+        </script>
+</body>
+</html>
